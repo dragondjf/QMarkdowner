@@ -1,0 +1,179 @@
+/***********************************************************/
+/* QMainWindow Style*/
+/***********************************************************/
+QMainWindow{
+    color: rgb(0, 0, 255);
+    /*background: rgb(255,255,255);*/
+}
+
+QMenuBar {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                       stop:0 lightgray, stop:1 darkgray);
+    font-family: "Verdana";
+    font-size: 14px;
+    text-align: center;
+ }
+
+QMenuBar::item {
+    /*spacing: 100px;  spacing between menu bar items */
+    padding: 1px 10px;
+    background: transparent;
+    /*width: 40px;*/
+    /*border-radius: 4px;*/
+ }
+
+QMenuBar::item:selected { /* when selected using mouse or keyboard */
+    background: #a8a8a8;
+ }
+
+QMenuBar::item:pressed {
+    background: #888888;
+ }
+
+
+QMenu {
+    background-color: white;
+    margin: 2px; /* some spacing around the menu */
+ }
+
+QMenu::item {
+    padding: 2px 25px 2px 20px;
+    border: 1px solid transparent; /* reserve space for selection border */
+ }
+
+QMenu::item:selected {
+    border-color: darkblue;
+    background: rgba(100, 100, 100, 150);
+ }
+
+QMenu::icon:checked { /* appearance of a 'checked' icon */
+    background: gray;
+    border: 1px inset gray;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+ }
+
+QMenu::separator {
+    height: 2px;
+    background: lightblue;
+    margin-left: 10px;
+    margin-right: 5px;
+ }
+
+QMenu::indicator {
+    width: 13px;
+    height: 13px;
+ }
+
+/***********************************************************/
+/* QPushButton Style*/
+/***********************************************************/
+QPushButton
+{
+    color: rgb(255, 255, 255);
+    background-color: rgb(167, 205, 255);
+    border:none;
+    font-family: "Verdana";
+    font-size: 15px;
+    text-align: center;
+    width: 60px; 
+}
+QPushButton:hover, QPushButton:pressed , QPushButton:checked
+{
+    background-color: rgb(85, 170, 255);
+    text-align: center;
+}
+QPushButton:hover
+{
+    background-repeat:no-repeat;
+    background-position: center left;
+}
+QPushButton:pressed, QPushButton:checked
+{
+    background-repeat:no-repeat;
+    background-position: center left;
+}
+
+QPushButton:disabled{
+    color: gray;
+    background-color: rgb(167, 205, 255);
+}
+
+/***********************************************************/
+/* QLineEdit Style*/
+/***********************************************************/
+QLineEdit {
+    padding: 1px;
+    border-style: solid;
+    border: 2px solid gray;
+    border-radius: 8px;
+    width:40px;
+}
+
+
+/***********************************************************/
+/* QTabWidget Style*/
+/***********************************************************/
+QTabWidget::pane { 
+     border-top: 5px solid #C2C7CB;
+     border-left: 5px solid #C2C7CB;
+     border-right: 5px solid #C2C7CB;
+     border-bottom: 5px solid #C2C7CB;
+     border-radius: 10px;
+}
+
+/*QTabWidget::tab-bar {
+    alignment: center;
+}*/
+
+ QTabBar::tab {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3); 
+     border: 2px solid #C4C4C3;
+     border-bottom-color: #C2C7CB; 
+     border-top-left-radius: 10px;
+     border-top-right-radius: 10px;
+     min-width: 8ex;
+     padding: 2px;
+}
+ QTabBar::tab:selected, QTabBar::tab:hover {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #fafafa, stop: 0.4 #f4f4f4,
+                                 stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+}
+ QTabBar::tab:selected {
+     border-color: #111111;
+     border-bottom-color: #C2C7CB;
+}
+ QTabBar::tab:!selected {
+     margin-top: 5px;
+}
+
+
+QStatusBar {
+    background: gray;
+}
+
+QStatusBar::item {
+    border: 10px solid red;
+    border-radius: 3px;
+}
+
+QTableWidget {
+    background: lightgray;
+    selection-background-color: gray;
+}
+
+QLabel#palabel{
+    background: lightgray;
+    border: 2px solid green;
+    border-radius: 20px;
+    padding: 2px;
+    height: 40px;
+    text-align: center;
+    /*background-image: url(skin/images/config8.png);*/
+}

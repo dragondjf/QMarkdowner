@@ -1,0 +1,39 @@
+QPushButton
+{
+    color: rgb(255, 255, 255);
+    background-color: rgb(167, 205, 255);
+    background: green;
+    border:none;
+    font-family: "Verdana";
+    font-size: 15px;
+    text-align: center;
+    width: 60px; 
+}
+QPushButton:hover, QPushButton:pressed , QPushButton:checked
+{
+    background-color: rgb(85, 170, 255);
+    text-align: center;
+}
+QPushButton:hover
+{
+    background-repeat:no-repeat;
+    background-position: center left;
+}
+QPushButton:pressed, QPushButton:checked
+{
+    background-repeat:no-repeat;
+    background-position: center left;
+}
+
+QPushButton:disabled{
+    color: gray;
+    background-color: rgb(167, 205, 255);
+}
+
+QLineEdit {
+    padding: 1px;
+    border-style: solid;
+    border: 2px solid gray;
+    border-radius: 8px;
+    width:40px;
+}

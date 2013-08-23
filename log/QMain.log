@@ -1,0 +1,354 @@
+2013-08-15 15:57:53,878    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-15 15:57:53,878     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-15 16:00:28,101    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-15 16:00:28,102     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-15 16:01:31,940     INFO [ TftpContexts.py: 271] Sending tftp upload request to 192.168.100.100
+2013-08-15 16:01:31,940     INFO [ TftpContexts.py: 272]     filename -> 4QA_DCS_CFG_V0200_r642_b20130809_m8223.cfg
+2013-08-15 16:01:31,940     INFO [ TftpContexts.py: 273]     options -> {}
+2013-08-15 16:01:43,994     INFO [ TftpContexts.py: 271] Sending tftp upload request to 192.168.100.100
+2013-08-15 16:01:43,996     INFO [ TftpContexts.py: 272]     filename -> 4QA_DCS_CFG_V0200_r642_b20130809_m8223.cfg
+2013-08-15 16:01:43,996     INFO [ TftpContexts.py: 273]     options -> {}
+2013-08-15 16:01:44,032     INFO [   TftpStates.py: 438] Received ACK from server
+2013-08-15 16:01:44,051     INFO [   TftpStates.py: 357] Received ACK for packet 1
+2013-08-15 16:01:44,051     INFO [   TftpStates.py: 145] Reached EOF on file 4QA_DCS_CFG_V0200_r642_b20130809_m8223.cfg
+2013-08-15 16:01:44,062     INFO [   TftpStates.py: 357] Received ACK for packet 2
+2013-08-15 16:01:44,063     INFO [   TftpStates.py: 361] Received ACK to final DAT, we're done.
+2013-08-15 16:01:44,063     INFO [   TftpClient.py:  94] 
+2013-08-15 16:01:44,065     INFO [   TftpClient.py:  95] Upload complete.
+2013-08-15 16:01:44,065     INFO [   TftpClient.py:  99] Uploaded 859 bytes in 0.07 seconds
+2013-08-15 16:01:44,065     INFO [   TftpClient.py: 100] Average rate: 98.69 kbps
+2013-08-15 16:01:44,065     INFO [   TftpClient.py: 101] 0.00 bytes in resent data
+2013-08-15 16:01:44,065     INFO [   TftpClient.py: 102] Resent 0 packets
+2013-08-15 16:01:53,236     INFO [ TftpContexts.py: 271] Sending tftp upload request to 192.168.100.100
+2013-08-15 16:01:53,237     INFO [ TftpContexts.py: 272]     filename -> 4QA_DCS_CFG_V0200_r642_b20130809_m8223.cfg
+2013-08-15 16:01:53,237     INFO [ TftpContexts.py: 273]     options -> {}
+2013-08-15 16:01:53,275     INFO [   TftpStates.py: 438] Received ACK from server
+2013-08-15 16:01:53,292     INFO [   TftpStates.py: 357] Received ACK for packet 1
+2013-08-15 16:01:53,293     INFO [   TftpStates.py: 145] Reached EOF on file 4QA_DCS_CFG_V0200_r642_b20130809_m8223.cfg
+2013-08-15 16:01:53,305     INFO [   TftpStates.py: 357] Received ACK for packet 2
+2013-08-15 16:01:53,305     INFO [   TftpStates.py: 361] Received ACK to final DAT, we're done.
+2013-08-15 16:01:53,306     INFO [   TftpClient.py:  94] 
+2013-08-15 16:01:53,306     INFO [   TftpClient.py:  95] Upload complete.
+2013-08-15 16:01:53,308     INFO [   TftpClient.py:  99] Uploaded 859 bytes in 0.07 seconds
+2013-08-15 16:01:53,308     INFO [   TftpClient.py: 100] Average rate: 97.26 kbps
+2013-08-15 16:01:53,308     INFO [   TftpClient.py: 101] 0.00 bytes in resent data
+2013-08-15 16:01:53,308     INFO [   TftpClient.py: 102] Resent 0 packets
+2013-08-15 16:02:17,247    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-15 16:02:17,247     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-15 16:04:24,201    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-15 16:04:24,201     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-15 16:05:15,002     INFO [ TftpContexts.py: 271] Sending tftp upload request to 192.168.100.100
+2013-08-15 16:05:15,002     INFO [ TftpContexts.py: 272]     filename -> 3QA_DCS_CFG_V0200_r642_b20130809_mbd82.cfg
+2013-08-15 16:05:15,002     INFO [ TftpContexts.py: 273]     options -> {}
+2013-08-15 16:05:22,226     INFO [ TftpContexts.py: 271] Sending tftp upload request to 192.168.100.100
+2013-08-15 16:05:22,226     INFO [ TftpContexts.py: 272]     filename -> 3QA_DCS_CFG_V0200_r642_b20130809_mbd82.cfg
+2013-08-15 16:05:22,226     INFO [ TftpContexts.py: 273]     options -> {}
+2013-08-15 16:05:22,263     INFO [   TftpStates.py: 438] Received ACK from server
+2013-08-15 16:05:22,280     INFO [   TftpStates.py: 357] Received ACK for packet 1
+2013-08-15 16:05:22,282     INFO [   TftpStates.py: 145] Reached EOF on file 3QA_DCS_CFG_V0200_r642_b20130809_mbd82.cfg
+2013-08-15 16:05:22,293     INFO [   TftpStates.py: 357] Received ACK for packet 2
+2013-08-15 16:05:22,293     INFO [   TftpStates.py: 361] Received ACK to final DAT, we're done.
+2013-08-15 16:05:22,295     INFO [   TftpClient.py:  94] 
+2013-08-15 16:05:22,295     INFO [   TftpClient.py:  95] Upload complete.
+2013-08-15 16:05:22,295     INFO [   TftpClient.py:  99] Uploaded 859 bytes in 0.07 seconds
+2013-08-15 16:05:22,296     INFO [   TftpClient.py: 100] Average rate: 98.69 kbps
+2013-08-15 16:05:22,296     INFO [   TftpClient.py: 101] 0.00 bytes in resent data
+2013-08-15 16:05:22,296     INFO [   TftpClient.py: 102] Resent 0 packets
+2013-08-15 16:05:29,625     INFO [ TftpContexts.py: 271] Sending tftp upload request to 192.168.100.100
+2013-08-15 16:05:29,625     INFO [ TftpContexts.py: 272]     filename -> 3QA_DCS_CFG_V0200_r642_b20130809_mbd82.cfg
+2013-08-15 16:05:29,625     INFO [ TftpContexts.py: 273]     options -> {}
+2013-08-15 16:05:29,663     INFO [   TftpStates.py: 438] Received ACK from server
+2013-08-15 16:05:29,680     INFO [   TftpStates.py: 357] Received ACK for packet 1
+2013-08-15 16:05:29,680     INFO [   TftpStates.py: 145] Reached EOF on file 3QA_DCS_CFG_V0200_r642_b20130809_mbd82.cfg
+2013-08-15 16:05:29,693     INFO [   TftpStates.py: 357] Received ACK for packet 2
+2013-08-15 16:05:29,693     INFO [   TftpStates.py: 361] Received ACK to final DAT, we're done.
+2013-08-15 16:05:29,694     INFO [   TftpClient.py:  94] 
+2013-08-15 16:05:29,694     INFO [   TftpClient.py:  95] Upload complete.
+2013-08-15 16:05:29,694     INFO [   TftpClient.py:  99] Uploaded 859 bytes in 0.07 seconds
+2013-08-15 16:05:29,694     INFO [   TftpClient.py: 100] Average rate: 98.69 kbps
+2013-08-15 16:05:29,694     INFO [   TftpClient.py: 101] 0.00 bytes in resent data
+2013-08-15 16:05:29,694     INFO [   TftpClient.py: 102] Resent 0 packets
+2013-08-15 16:22:56,823    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-15 16:22:56,825     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-15 16:23:27,039     INFO [       update.py: 103] 第1次开启升级模式升级失败
+2013-08-15 16:23:27,039     INFO [       update.py: 103] 第2次开启升级模式升级失败
+2013-08-15 16:23:27,042     INFO [       update.py: 103] 第3次开启升级模式升级失败
+2013-08-15 16:23:27,043     INFO [       update.py: 103] 第4次开启升级模式升级失败
+2013-08-16 08:30:09,851    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-16 08:30:09,854     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-16 08:35:28,897    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-16 08:35:28,898     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-16 08:36:51,555    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-16 08:36:51,555     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-16 08:37:43,523    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-16 08:37:43,525     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-16 08:41:32,013    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-16 08:41:32,013     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-16 08:41:47,940     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:42:39,451     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:45:09,063     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:45:34,950     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:48:37,867     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:53:38,163     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:55:51,385     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:57:04,828     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:57:51,408     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 08:58:46,782     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:00:09,885     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:00:51,385     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:01:13,142     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:01:37,081     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:02:24,295     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:03:21,055     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:04:07,858     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:04:41,167     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:05:00,862     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:23:24,065     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:23:49,019     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:24:11,230     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:25:32,753     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:26:03,447     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:27:24,937     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:33:37,808     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:34:02,778     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:34:41,710     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:41:56,964     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:43:37,132     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:44:09,453     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:46:36,216     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:48:50,081     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:49:20,059     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:49:45,806     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:50:01,716     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:50:56,186     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:51:28,151     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:52:05,489     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:58:59,673     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 09:59:12,776     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:21:13,749     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:27:14,528     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:27:40,111     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:30:10,362     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:35:51,548     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:46:44,173     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:47:11,667     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:47:56,223    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-16 11:47:56,223     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-16 11:49:41,923     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:52:14,036     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:52:31,694     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:52:49,279     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:54:41,178    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-16 11:54:41,180     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-16 11:55:06,233     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:55:47,216     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 11:59:39,834     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 12:00:00,242     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 12:58:46,894     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 13:09:02,894     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 14:57:26,967     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 14:57:45,160     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-16 15:21:31,033     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-19 15:40:18,101     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-19 15:40:56,040    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-19 15:40:56,040     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-19 15:41:09,502     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-19 15:41:24,434    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-19 15:41:24,434     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-19 15:41:51,884    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-19 15:41:51,885     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-19 15:49:45,015    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-19 15:49:45,015     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-19 15:50:34,203     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-19 15:51:41,418    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-19 15:51:41,420     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-19 15:52:11,033    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-19 15:52:11,035     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-19 15:52:31,493    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\sw\branches\QDConfiger\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\sw\\branches\\QDConfiger\\options\\windowsoptions.json'
+2013-08-19 15:52:31,494     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:33:55,496    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:33:55,496     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:34:58,864     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 10:35:14,553     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 10:35:32,062     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 10:43:05,262     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 10:46:40,298     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 10:48:08,846     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 10:49:46,859     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 10:50:04,825    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:50:04,826     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:51:04,384    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:51:04,384     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:52:03,986    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:52:03,986     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:53:50,038    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:53:50,039     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:55:16,194    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:55:16,196     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:55:49,032    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:55:49,032     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:56:15,802    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:56:15,802     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:57:40,997    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:57:40,999     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 10:58:21,608    ERROR [       config.py:  18] [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+Traceback (most recent call last):
+  File "D:\QMarkdown\config.py", line 14, in <module>
+    with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
+IOError: [Errno 2] No such file or directory: 'D:\\QMarkdown\\options\\windowsoptions.json'
+2013-08-23 10:58:21,608     INFO [       config.py:  19] Load windowsoptions from local
+2013-08-23 11:01:31,997     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:03:19,278     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:03:45,808     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:04:16,967     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:05:46,782     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:17:05,753     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:21:46,071     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:24:23,575     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:39:46,423     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:40:10,460     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:53:59,759     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:54:16,690     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:54:44,384     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:56:27,430     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:56:52,750     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:57:14,130     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:59:08,799     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 11:59:49,966     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 12:53:34,194     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 12:54:00,930     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 12:54:28,308     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 12:55:29,388     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 12:56:56,246     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 12:58:32,257     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:00:59,308     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:10:41,141     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:12:14,164     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:15:24,424     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:16:46,415     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:19:24,520     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:27:43,384     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:28:30,121     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:31:27,200     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:31:35,197     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:33:11,957     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:34:39,823     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:35:11,674     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:35:57,792     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:36:56,740     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:37:26,578     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:38:50,407     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:40:21,822     INFO [       config.py:  16] Load windowsoptions from file
+2013-08-23 13:58:25,961     INFO [       config.py:  16] Load windowsoptions from file
