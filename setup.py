@@ -292,19 +292,22 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 
 if __name__ == '__main__':
 
-    sw_name = u"QDConfiger"
+    sw_name = u"QMarkdowner"
     sw_version = '1.0'
     sw_publisher = 'dragondjf'
     sw_url = "http://www.ov-orange.com/"
-    project_svnpath = 'http://192.168.10.200/svn/SW/branches/QDConfiger'
     sw_path = os.sep.join([os.getcwd(), sw_name])
 
+    svn_version = '100'
+    buildtime = '20130823'
+    info = [svn_version, buildtime]
+    distributedname = distributedname = '%s-v%s-r%s-b%s' % (sw_name, sw_version, svn_version, buildtime)
     # 删除过时的项目文件目录
     delete_file_folder(sw_path)
     # 从svn checkout最新的项目副本，并清理其中的.svn文件夹
-    sw_path, distributedname, info = get_sw_distributedname(sw_name, sw_version, project_svnpath)
-    time.sleep(2)
-    clearsvn(sw_path)
+    # sw_path, distributedname, info = get_sw_distributedname(sw_name, sw_version, project_svnpath)
+    # time.sleep(2)
+    # clearsvn(sw_path)
 
     # 在options中生成软件版本信息文件
     sw_info = json.dumps({
@@ -375,7 +378,7 @@ if __name__ == '__main__':
             拷贝响应的图片皮肤和与项目有关的资源文件到打包目录
         '''
 
-    for item in ['skin', 'Bootstrap Metro UI CSS', 'options']:
+    for item in ['skin', 'Bootstrap Metro UI CSS', 'options', 'markdown']:
         shutil.copytree(os.getcwd() + os.sep + item, os.getcwd() + os.sep + os.sep.join(['dist', item]))
 
     for item in ['log']:
