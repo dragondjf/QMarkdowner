@@ -21,15 +21,16 @@ mainwindowsettings = {
     'windowicon': logo_ico,
     'fullscreenflag': True,
     'centralwindow': {
-        'pagetags': [['Markdown', 'About']],
+        'pagetags': [['Markdown', 'QChrome', 'About']],
         'pagetags_zh': {
             'Markdown': u'Markdown编辑(Edit)',
+            'QChrome': u'QChrome(调试)',
             'About': u'关于(About)',
         }
     },
-    'menusettings':{
-        'visual' : False,
-        'menus':[
+    'menusettings': {
+        'visual': False,
+        'menus': [
             {
                 'name': u'File',
                 'name_zh': u'',
@@ -97,13 +98,13 @@ mainwindowsettings = {
                     },
                 ]
             }
-        ]    
+        ]
     },
-    'toolbarsettings':{
+    'toolbarsettings': {
         'visual': True,
         'dockArea': dockAreas['left'],
         'movable': False,
-        'toolbars':[
+        'toolbars': [
             {
                 'id': u'ImportButton',
                 'icon': u'',

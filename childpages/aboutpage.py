@@ -8,7 +8,7 @@ from PyQt4 import QtWebKit
 from Cheetah.Template import Template
 import json
 import logging
-from basepage import BasePage
+from webkitbasepage import WebkitBasePage
 
 logger = logging.getLogger(__name__)
 
@@ -187,18 +187,10 @@ templateDef_absolute = '''
 </html>'''
 
 
-class AboutPage(BasePage):
+class AboutPage(WebkitBasePage):
     def __init__(self, parent=None):
         super(AboutPage, self).__init__(parent)
         self.parent = parent
-        QtNetwork.QNetworkProxyFactory.setUseSystemConfiguration(True)
-        self.view = QtWebKit.QWebView(self)
-        self.view.setFocus()
-
-        mainlayout = QtGui.QVBoxLayout()
-        mainlayout.addWidget(self.view)
-        self.setLayout(mainlayout)
-        self.layout().setContentsMargins(0, 0, 0, 0)
 
         self.loadfromlocal()
 

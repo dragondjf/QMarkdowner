@@ -1,8 +1,38 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import os
+from PyQt4 import QtGui
+from PyQt4 import QtCore
+from PyQt4 import QtWebKit
+from Cheetah.Template import Template
+import json
+import logging
+from webkitbasepage import WebkitBasePage
+
+logger = logging.getLogger(__name__)
+
+templateDef_absolute = '''
+#encoding utf-8
+#set $csspath = $os.sep.join([$os.getcwd(), 'markdown', 'css'])
+#set $jspath = $os.sep.join([$os.getcwd(), 'markdown', 'js'])
+#set $markdown_css=$os.sep.join([$csspath, 'markdown.css'])
 <!DOCTYPE html>
-<!-- saved from url=(0052)file:///C:/users/admini~1/appdata/local/temp/60.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
-<link href="markdown.css" rel="stylesheet" type="text/css">
-<title>readme</title></head><body>
+<html xmlns="http://www.w3.org/1999/html"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="QChrome">
+        <meta name="author" content="dragondjf@gamil.com">
+        <meta name="keywords" content="PyQt4, Chrome, Metro, QtWebKit">
+        <title>MaDe Editor</title>
+        <link href="file:///$markdown_css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        $markdownhtml
+    </body>
+</html>'''
+
+
+markdownhtml = '''
 <h1 id="mixin">如何利用Mixin对已定义的类进行方法和属性扩展</h1>
 
 <blockquote>
@@ -35,7 +65,7 @@
       <p><strong>c.</strong> 代码实现</p>
 
 <pre><code>class _MetaMixin(type):
-'''
+\'''
     利用元编程扩展类属性和方法，示例：
     class DemoMixin1(object):
         __mixinname__ = 'DemoMixin'
@@ -46,7 +76,7 @@
     自定义的类中必须包含如下两个类属性：
         __mixinname__ = 'DemoMixin'
         __metaclass__ = _MetaMixin
-'''
+\'''
 def __new__(cls, clsname, clsbases, clsdict):
     t = type.__new__(cls, clsname, clsbases, clsdict)
     mixinId = clsdict['__mixinname__']
@@ -88,7 +118,7 @@ def __new__(cls, clsname, clsbases, clsdict):
     def __init__(self):
         self.initmixin()
     def initmixin(self):
-        '''
+        \'''
             1. Add every item in __mixinset__[self.__mixinname__]
             into instance of the class which inherit from Mixin
             2. Marked by class attr __mixinname__, all subclass need define its own __mixinname__
@@ -96,7 +126,7 @@ def __new__(cls, clsname, clsbases, clsdict):
             __mixinset__为一字典，收集扩展方法和属性集合
             __mixinname__为ID，标识旗下的方法和属性属于哪一个类
             这种方法必须在子类中定义__mixinname__
-        '''
+        \'''
         if self.__class__.__name__ == 'Mixin':  #don't dealing Mixin class itself
             return
         if not self.__mixinname__:
@@ -105,11 +135,11 @@ def __new__(cls, clsname, clsbases, clsdict):
             self.__dict__.update(__mixinset__[self.__mixinname__])
             setattr(self, '__mixins__', __mixinset__[self.__mixinname__])
     def initmixin2(self):
-        '''
+        \'''
             if you use this method
             Marked by class attr __name__, all subclass don't need define its own __mixinname__
             直接以__name__为ID,不需要定义__mixinname__,但必须保证__mixinset__与类一一对应
-        '''
+        \'''
         name = self.__class__.__name__
         if name == 'Mixin':  #don't dealing Mixin class itself
             return
@@ -141,14 +171,14 @@ def __new__(cls, clsname, clsbases, clsdict):
 
 <pre><code>__mixinset__ = {}  # 收集所有需要扩展的类方法和属性
 def setMixin(mixinname, name, value):
-    '''
+    \'''
         mixinname----ID
         name -----属性或方法名字
         value-----对应属性或方法的具体实现
         如果value为字典，则update更新相应的字典
         如果value为列表，则extend拓展相应的列表
         如果value为元组，则sum增加相应的元组
-    '''
+    \'''
     if mixinname in __mixinset__:
         mixins = __mixinset__[mixinname]
     else:
@@ -231,24 +261,24 @@ if __name__ == '__main__':
 
 <pre><code>#!/usr/bin/python
 # -*- coding: utf-8 -*-
-'''
+\'''
     目的：当实例创建时，根据收集到的配置对相应的类进行动态方法和属性扩展
     方式有两种：
         第一种：直接扩展类属性和方法，这种方式使用元编程__new__实现较好；
                 直接拓展类clsdict，因为clsdict中存放的即为所有类属性和方法的集合
         第二种：直接扩展实例属性和方法，这种方式在初始化__init__中实现较好；
                 直接拓展实例__dict__,因为__dict__中存放的即为所有实例属性和方法的集合
-'''
+\'''
 __mixinset__ = {}  # 收集所有需要扩展的类方法和属性
 class Object_Dict(dict):
-    '''
+    \'''
         Makes a dictionary behave like an object.
-    '''
+    \'''
     def __init__(self, *args, **kw):
         dict.__init__(self, *args, **kw)
         self.__dict__ = self
 class _MetaMixin(type):
-    '''
+    \'''
         利用元编程扩展类属性和方法，示例：
         class DemoMixin1(object):
             __mixinname__ = 'DemoMixin'
@@ -259,7 +289,7 @@ class _MetaMixin(type):
         自定义的类中必须包含如下两个类属性：
             __mixinname__ = 'DemoMixin'
             __metaclass__ = _MetaMixin
-    '''
+    \'''
     def __new__(cls, clsname, clsbases, clsdict):
         t = type.__new__(cls, clsname, clsbases, clsdict)
         mixinId = clsdict['__mixinname__']
@@ -274,7 +304,7 @@ class Mixin(object):
     def __init__(self):
         self.initmixin()
     def initmixin(self):
-        '''
+        \'''
             1. Add every item in __mixinset__[self.__mixinname__]
             into instance of the class which inherit from Mixin
             2. Marked by class attr __mixinname__, all subclass need define its own __mixinname__
@@ -282,7 +312,7 @@ class Mixin(object):
             __mixinset__为一字典，收集扩展方法和属性集合
             __mixinname__为ID，标识旗下的方法和属性属于哪一个类
             这种方法必须在子类中定义__mixinname__
-        '''
+        \'''
         if self.__class__.__name__ == 'Mixin':  #don't dealing Mixin class itself
             return
         if not self.__mixinname__:
@@ -291,11 +321,11 @@ class Mixin(object):
             self.__dict__.update(__mixinset__[self.__mixinname__])
             setattr(self, '__mixins__', __mixinset__[self.__mixinname__])
     def initmixin2(self):
-        '''
+        \'''
             if you use this method
             Marked by class attr __name__, all subclass don't need define its own __mixinname__
             直接以__name__为ID,不需要定义__mixinname__,但必须保证__mixinset__与类一一对应
-        '''
+        \'''
         name = self.__class__.__name__
         if name == 'Mixin':  #don't dealing Mixin class itself
             return
@@ -303,14 +333,14 @@ class Mixin(object):
             self.__dict__.update(__mixinset__[name])
             setattr(self, '__mixins__', __mixinset__[name])
 def setMixin(mixinname, name, value):
-    '''
+    \'''
         mixinname----ID
         name -----属性或方法名字
         value-----对应属性或方法的具体实现
         如果value为字典，则update更新相应的字典
         如果value为列表，则extend拓展相应的列表
         如果value为元组，则sum增加相应的元组
-    '''
+    \'''
     if mixinname in __mixinset__:
         mixins = __mixinset__[mixinname]
     else:
@@ -375,4 +405,33 @@ if __name__ == '__main__':
     </blockquote>
   </blockquote>
 </blockquote>
-</body></html>
+
+'''
+
+class QChromePage(WebkitBasePage):
+    def __init__(self, parent=None):
+        super(QChromePage, self).__init__(parent)
+        self.parent = parent
+
+        self.loadfromlocal()
+
+    def auto_html(self, template):
+        nameSpace = {
+            'markdownhtml': markdownhtml,
+        }
+        t = Template(template, searchList=[nameSpace])
+        html = unicode(t)
+        return html
+
+    def loadfromlocal(self):
+        html = self.auto_html(templateDef_absolute)
+        self.view.setHtml(html, QtCore.QUrl(os.getcwd()))
+
+
+
+if __name__ == '__main__':
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    w = ChromePage()
+    w.show()
+    sys.exit(app.exec_())

@@ -39,6 +39,28 @@ QPushButton#MarkdownButton:pressed, QPushButton#MarkdownButton:checked
     background-position: center right;
 }
 
+QPushButton#QChromeButton
+{
+    width: 600px;
+    height: 50px;
+    background-image: url(skin/icons/dark/appbar.browser.chrome.png);
+    background-repeat:no-repeat;
+    background-position: center left;
+}
+QPushButton#QChromeButton:hover
+{
+    background-image: url(skin/icons/dark/appbar.browser.chrome.png);
+    background-repeat:no-repeat;
+    background-position: center left;
+}
+QPushButton#QChromeButton:pressed, QPushButton#QChromeButton:checked
+{
+    background-image: url(skin/icons/light/appbar.browser.chrome.png);
+    background-repeat:no-repeat;
+    background-position: center right;
+}
+
+
 QPushButton#UpdateButton
 {
     width: 600px;

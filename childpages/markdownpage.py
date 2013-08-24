@@ -8,7 +8,7 @@ from PyQt4 import QtWebKit
 from Cheetah.Template import Template
 import json
 import logging
-from basepage import BasePage
+from webkitbasepage import WebkitBasePage
 
 logger = logging.getLogger(__name__)
 
@@ -114,13 +114,10 @@ def getfiles(path):
     return files
 
 
-class MarkdownPage(BasePage):
+class MarkdownPage(WebkitBasePage):
     def __init__(self, parent=None):
         super(MarkdownPage, self).__init__(parent)
         self.parent = parent
-        QtNetwork.QNetworkProxyFactory.setUseSystemConfiguration(True)
-        self.view = QtWebKit.QWebView(self)
-        self.view.setFocus()
 
         jspath = os.sep.join([os.getcwd(), 'markdown', 'js'])
         jsfiles = [
@@ -140,11 +137,6 @@ class MarkdownPage(BasePage):
                 setattr(self, jsname, '')
 
         # self.view.loadFinished.connect(self.finishLoading)
-
-        mainlayout = QtGui.QVBoxLayout()
-        mainlayout.addWidget(self.view)
-        self.setLayout(mainlayout)
-        self.layout().setContentsMargins(0, 0, 0, 0)
 
         self.loadfromlocal()
 

@@ -313,7 +313,7 @@ class MainWindow(QtGui.QMainWindow):
     def keyPressEvent(self, evt):
         if evt.key() == QtCore.Qt.Key_Escape:
             self.close()
-        elif evt.key() == QtCore.Qt.Key_F11:
+        elif evt.key() == QtCore.Qt.Key_F5:
             if not self.fullscreenflag:
                 self.showFullScreen()
                 self.fullscreenflag = True

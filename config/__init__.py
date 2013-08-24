@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 import os
 import json
-import logging
+# import logging
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 __softwarename__ = 'QMarkdowner'
 __author__ = "dragondjf"
@@ -26,10 +26,10 @@ from shortcutcfg import shortcutsettings
 try:
     with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
         windowsoptions = json.load(f)
-        logger.info('Load windowsoptions from file')
+        # logger.info('Load windowsoptions from file')
 except Exception, e:
-    logger.exception(e)
-    logger.info('Load windowsoptions from local')
+    # logger.exception(e)
+    # logger.info('Load windowsoptions from local')
     windowsoptions = {
         'mainwindow': mainwindowsettings,
         'shortcutsettings': shortcutsettings,
