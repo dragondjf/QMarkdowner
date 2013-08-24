@@ -291,15 +291,19 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 
 
 if __name__ == '__main__':
-
-    sw_name = u"QMarkdowner"
-    sw_version = '1.0'
-    sw_publisher = 'dragondjf'
-    sw_url = "http://www.ov-orange.com/"
+    import config
+    import time
+    sw_name = config.__softwarename__
+    sw_version = config.__version__
+    sw_publisher = config.__author__
+    sw_url = config.__url__
+    sw_description = config.__description__
+    sw_logoico = config.__logoico__
     sw_path = os.sep.join([os.getcwd(), sw_name])
 
     svn_version = '100'
-    buildtime = '20130823'
+    t = time.gmtime()
+    buildtime = ''.join([str(i) for i in [t.tm_year, t.tm_mon, t.tm_mday]])
     info = [svn_version, buildtime]
     distributedname = distributedname = '%s-v%s-r%s-b%s' % (sw_name, sw_version, svn_version, buildtime)
     # 删除过时的项目文件目录
@@ -341,11 +345,11 @@ if __name__ == '__main__':
         dist.vs2008 = None
         dist.setup(
                 name=sw_name,
-                version='1.0.0',
+                version=sw_version,
                 description=u"Application based on PyQt4",
                 script=os.sep.join([os.getcwd(), 'QMain.py']),
                 target_name=sw_name,
-                icon=os.sep.join([os.getcwd(), 'skin', 'images', 'config8.ico']))
+                icon=sw_logoico)
 
         dist.add_modules('PyQt4')
         dist.bin_excludes += ["libzmq.dll"]

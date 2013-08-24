@@ -57,8 +57,8 @@ class ChildPage(QtGui.QWidget):
 
 
     def createNavigationByPage(self):
-        navbutton = windowsoptions['mainwindow']['centralwindow']['page_tag'][0] + ['Min', 'Close']
-        navbutton_zh = windowsoptions['mainwindow']['centralwindow']['page_tag_zh']
+        navbutton = windowsoptions['mainwindow']['centralwindow']['pagetags'][0] + ['Min', 'Close']
+        navbutton_zh = windowsoptions['mainwindow']['centralwindow']['pagetags_zh']
         self.navigation = QtGui.QWidget()
         navigationLayout = QtGui.QHBoxLayout()
 

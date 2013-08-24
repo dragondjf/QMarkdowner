@@ -177,3 +177,107 @@ QLabel#palabel{
     text-align: center;
     /*background-image: url(skin/images/config8.png);*/
 }
+
+
+QToolBar {
+    background: lightgray;
+    spacing: 3px; /* spacing between items in the tool bar */
+}
+
+
+QToolButton {
+    background: green;
+    width: 60px;
+    height: 80px;
+    font-family: "黑体";
+    font: bold 15px;
+    text-align: center;
+}
+
+QToolButton:hover, QToolButton:pressed , QToolButton:checked, QToolButton:focus
+{
+    background-color: rgb(85, 170, 255);
+    text-align: center;
+    font-weight:100
+}
+
+QToolButton#ImportButton
+{
+    background-image: url(skin/icons/dark/appbar.layer.down.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QToolButton#ImportButton:hover
+{
+    background-image: url(skin/icons/dark/appbar.layer.down.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QToolButton#ImportButton:pressed, QToolButton#ImportButton:checked
+{
+    background-image: url(skin/icons/light/appbar.layer.down.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+QToolButton#ExportButton
+{
+    background-image: url(skin/icons/dark/appbar.layer.up.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QToolButton#ExportButton:hover
+{
+    background-image: url(skin/icons/dark/appbar.layer.up.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QToolButton#ExportButton:pressed, QToolButton#ExportButton:checked
+{
+    background-image: url(skin/icons/light/appbar.layer.up.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+QToolButton#PreviewButton
+{
+    background-image: url(skin/icons/dark/appbar.input.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QToolButton#PreviewButton:hover
+{
+    background-image: url(skin/icons/dark/appbar.input.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QToolButton#PreviewButton:pressed, QToolButton#PreviewButton:checked
+{
+    background-image: url(skin/icons/light/appbar.input.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+QToolButton#ShareButton
+{
+    background-image: url(skin/icons/dark/appbar.share.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QToolButton#ShareButton:hover
+{
+    background-image: url(skin/icons/dark/appbar.share.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QToolButton#ShareButton:pressed, QToolButton#ShareButton:checked
+{
+    background-image: url(skin/icons/light/appbar.share.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+QToolTip {
+    font-family: "Verdana";
+    font-size: 14px;
+}

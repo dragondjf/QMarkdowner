@@ -35,12 +35,12 @@ class MetroWindow(QtGui.QWidget):
     def __init__(self, parent=None):
         super(MetroWindow, self).__init__(parent)
 
-        self.page_tag = windowsoptions['mainwindow']['centralwindow']['page_tag']
-        self.page_tag_zh = windowsoptions['mainwindow']['centralwindow']['page_tag_zh']
+        self.pagetags = windowsoptions['mainwindow']['centralwindow']['pagetags']
+        self.pagetags_zh = windowsoptions['mainwindow']['centralwindow']['pagetags_zh']
         self.initUI()
 
     def initUI(self):
-        self.pagecount = len(self.page_tag_zh)  # 页面个数
+        self.pagecount = len(self.pagetags_zh)  # 页面个数
         # self.createNavigation()
         self.pages = QtGui.QStackedWidget()  # 创建堆控件
 
@@ -67,7 +67,7 @@ class MetroWindow(QtGui.QWidget):
         '''
             创建子页面
         '''
-        for buttons in self.page_tag:
+        for buttons in self.pagetags:
             for item in buttons:
                 page = item + 'Page'
                 childpage = 'child' + page
@@ -83,7 +83,7 @@ class MetroWindow(QtGui.QWidget):
         '''
             创建按钮与页面的链接
         '''
-        for buttons in self.page_tag:
+        for buttons in self.pagetags:
             for item in buttons:
                 button = item + 'Button'
                 getattr(self.navigationPage, button).clicked.connect(self.childpageChange)
@@ -134,55 +134,52 @@ class MainWindow(QtGui.QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
 
+        self.initFrame()
+        self.centeralwindow = MetroWindow(self)
+        self.setCentralWidget(self.centeralwindow)
+
+        self.createMenus()
+        self.createToolbars()
+        self.createStatusbar()
+
+        self.setskin()
+
+        currentpage = self.centralWidget().pages.currentWidget()
+        currentpage.navigation.setVisible(windowsoptions['mainwindow']['navigationvisual'])
+
+    def initFrame(self):
         title = windowsoptions['mainwindow']['title']
         postion = windowsoptions['mainwindow']['postion']
         minsize = windowsoptions['mainwindow']['minsize']
         size = windowsoptions['mainwindow']['size']
         windowicon = windowsoptions['mainwindow']['windowicon']
         fullscreenflag = windowsoptions['mainwindow']['fullscreenflag']
-        statusbar_options = windowsoptions['mainwindow']['statusbar']
-        navigation_show = windowsoptions['mainwindow']['navigation_show']
+        navigationvisual = windowsoptions['mainwindow']['navigationvisual']
 
+        self.setWindowTitle(title)
         self.setWindowIcon(QtGui.QIcon(windowicon))  # 设置程序图标
+        self.setMinimumSize(minsize[0], minsize[1])
         width = QtGui.QDesktopWidget().availableGeometry().width() * 4 / 5
         height = QtGui.QDesktopWidget().availableGeometry().height() * 7 / 8
         self.setGeometry(postion[0], postion[1], width, height)  # 初始化窗口位置和大小
         self.center()  # 将窗口固定在屏幕中间
-        self.setMinimumSize(minsize[0], minsize[1])
-        self.setWindowTitle(title)
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
 
         self.fullscreenflag = fullscreenflag  # 初始化时非窗口最大话标志
-        self.navigation_flag = True   # 导航标志，初始化时显示导航
-        self.layout().setContentsMargins(0, 0, 0, 0)
-
-        # self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)  # 隐藏标题栏， 可以拖动边框改变大小
-        # self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 隐藏标题栏， 无法改变大小
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowMinimizeButtonHint)  # 无边框， 带系统菜单， 可以最小化
-        # self.setMouseTracking(True)
-
-        self.centeralwindow = MetroWindow(self)
-        self.setCentralWidget(self.centeralwindow)
-
-        self.statusbar = QtGui.QStatusBar()
-        self.setStatusBar(self.statusbar)
-        self.statusbar.showMessage(statusbar_options['initmessage'])
-        self.statusbar.setMinimumHeight(statusbar_options['minimumHeight'])
-        self.statusbar.setVisible(statusbar_options['visual'])
-
-        self.setskin()
         if self.fullscreenflag:
             self.showFullScreen()
         else:
             self.showNormal()
 
-        self.createMenus()
+        self.navigationvisual = navigationvisual   # 导航标志，初始化时显示导航
+        self.layout().setContentsMargins(0, 0, 0, 0)
 
-        currentpage = self.centralWidget().pages.currentWidget()
-        currentpage.navigation.setVisible(windowsoptions['mainwindow']['navigation_show'])
+        # self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)  # 隐藏标题栏， 可以拖动边框改变大小
+        # self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 隐藏标题栏， 无法改变大小
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowMinimizeButtonHint)  # 无边框， 带系统菜单， 可以最小化
 
     def setskin(self):
-        for buttons in windowsoptions['mainwindow']['centralwindow']['page_tag']:
+        for buttons in windowsoptions['mainwindow']['centralwindow']['pagetags']:
             for item in buttons:
                 childpage = getattr(self.centeralwindow, 'child' + item + 'Page')
                 set_skin(childpage, os.sep.join(['skin', 'qss', 'MetroNavigationBar.qss']))   # 设置导航工具条的样式
@@ -196,42 +193,83 @@ class MainWindow(QtGui.QMainWindow):
         self.move(qr.topLeft())
 
     def createMenus(self):
-        MenuSettings = windowsoptions['mainwindow']['MenuSettings']
+        menusettings = windowsoptions['mainwindow']['menusettings']
         menubar = self.menuBar()
-        menubar.setVisible(MenuSettings['visual'])
-        for menu in MenuSettings['menus']:
+        menubar.setVisible(menusettings['visual'])
+        for menu in menusettings['menus']:
             setattr(
                 self,
-                '%smenu' % menu['MenuName'],
-                menubar.addMenu(u'%s%s' % (menu['MenuName'], menu['MenuName_zh']))
-                )
-            submenu = getattr(self, '%smenu' % menu['MenuName'])
-            for menuaction in menu['MenuActions']:
+                '%smenu' % menu['name'],
+                menubar.addMenu(u'%s%s' % (menu['name'], menu['name_zh']))
+            )
+            submenu = getattr(self, '%smenu' % menu['name'])
+            for menuaction in menu['actions']:
                 setattr(
                     self,
-                    '%sAction' % menuaction['TriggerName'],
+                    '%sAction' % menuaction['trigger'],
                     QtGui.QAction(
-                        QtGui.QIcon(QtGui.QPixmap(menuaction['Icon'])),
-                        '%s%s' % (menuaction['Name'], menuaction['Name_zh']),
+                        QtGui.QIcon(QtGui.QPixmap(menuaction['icon'])),
+                        '%s%s' % (menuaction['name'], menuaction['name_zh']),
                         self
                     )
                 )
-                if hasattr(self, 'action%s' % menuaction['TriggerName']):
-                    action = getattr(self, '%sAction' % menuaction['TriggerName'])
+                if hasattr(self, 'action%s' % menuaction['trigger']):
+                    action = getattr(self, '%sAction' % menuaction['trigger'])
+                    action.setShortcut(QtGui.QKeySequence(menuaction['shortcut']))
                     submenu.addAction(action)
                     action.triggered.connect(
-                        getattr(self, 'action%s' % menuaction['TriggerName'])
+                        getattr(self, 'action%s' % menuaction['trigger'])
                     )
                 else:
-                    action = getattr(self, '%sAction' % menuaction['TriggerName'])
+                    action = getattr(self, '%sAction' % menuaction['trigger'])
+                    action.setShortcut(QtGui.QKeySequence(menuaction['shortcut']))
                     submenu.addAction(action)
                     action.triggered.connect(
                         getattr(self, 'actionNotImplement')
                     )
 
-        # self.cell_addAction = QtGui.QAction(self.tr("&Add"), self)
-        # self.cell_addAction.setShortcut(QtCore.Qt.CTRL | QtCore.Qt.Key_Plus)
-        # self.cell_addAction.triggered.connect(self.actionAdd)
+    def createToolbars(self):
+        toolbarsettings = windowsoptions['mainwindow']['toolbarsettings']
+        self.toolbar = QtGui.QToolBar(self)
+        self.toolbar.setMovable(toolbarsettings['movable'])
+        self.addToolBar(toolbarsettings['dockArea'], self.toolbar)
+
+        for toolbar in toolbarsettings['toolbars']:
+            setattr(
+                self,
+                '%sAction' % toolbar['trigger'],
+                QtGui.QAction(
+                    QtGui.QIcon(QtGui.QPixmap(toolbar['icon'])),
+                    '%s%s' % (toolbar['name'], toolbar['name_zh']),
+                    self
+                )
+            )
+            if hasattr(self, 'action%s' % toolbar['trigger']):
+                action = getattr(self, '%sAction' % toolbar['trigger'])
+                action.setShortcut(QtGui.QKeySequence(toolbar['shortcut']))
+                action.setToolTip(toolbar['tooltip'])
+                self.toolbar.addAction(action)
+                action.triggered.connect(
+                    getattr(self, 'action%s' % toolbar['trigger'])
+                )
+                self.toolbar.widgetForAction(action).setObjectName(toolbar['id'])
+            else:
+                action = getattr(self, '%sAction' % toolbar['trigger'])
+                action.setShortcut(QtGui.QKeySequence(toolbar['shortcut']))
+                action.setToolTip(toolbar['tooltip'])
+                self.toolbar.addAction(action)
+                action.triggered.connect(
+                    getattr(self, 'actionNotImplement')
+                )
+                self.toolbar.widgetForAction(action).setObjectName(toolbar['id'])
+
+    def createStatusbar(self):
+        statusbarsettings = windowsoptions['mainwindow']['statusbarsettings']
+        self.statusbar = QtGui.QStatusBar()
+        self.setStatusBar(self.statusbar)
+        self.statusbar.showMessage(statusbarsettings['initmessage'])
+        self.statusbar.setMinimumHeight(statusbarsettings['minimumHeight'])
+        self.statusbar.setVisible(statusbarsettings['visual'])
 
     def actionAbout(self):
         pass
@@ -265,11 +303,11 @@ class MainWindow(QtGui.QMainWindow):
 
     def saveoptions(self):
         windowsoptions['mainwindow']['fullscreenflag'] = self.fullscreenflag
-        windowsoptions['mainwindow']['navigation_show'] = \
+        windowsoptions['mainwindow']['navigationvisual'] = \
             self.centeralwindow.pages.currentWidget().navigation.isVisible()
-        windowsoptions['mainwindow']['MenuSettings']['visual'] = \
+        windowsoptions['mainwindow']['menusettings']['visual'] = \
             self.menuBar().isVisible()
-        windowsoptions['mainwindow']['statusbar']['visual'] = \
+        windowsoptions['mainwindow']['statusbarsettings']['visual'] = \
             self.statusBar().isVisible()
 
     def keyPressEvent(self, evt):
@@ -286,12 +324,12 @@ class MainWindow(QtGui.QMainWindow):
         elif evt.key() == QtCore.Qt.Key_F10:
             currentpage = self.centralWidget().pages.currentWidget()
             if hasattr(currentpage, 'navigation'):
-                if self.navigation_flag:
+                if self.navigationvisual:
                     currentpage.navigation.setVisible(False)
-                    self.navigation_flag = False
+                    self.navigationvisual = False
                 else:
                     currentpage.navigation.setVisible(True)
-                    self.navigation_flag = True
+                    self.navigationvisual = True
         elif evt.key() == QtCore.Qt.Key_F9:
             if self.menuBar().isVisible():
                 self.menuBar().hide()
