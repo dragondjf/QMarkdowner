@@ -292,26 +292,18 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 
 if __name__ == '__main__':
     import config
-    import time
     sw_name = config.__softwarename__
     sw_version = config.__version__
     sw_publisher = config.__author__
     sw_url = config.__url__
     sw_description = config.__description__
     sw_logoico = config.__logoico__
-    sw_path = os.sep.join([os.getcwd(), sw_name])
 
     svn_version = '100'
     t = time.gmtime()
     buildtime = ''.join([str(i) for i in [t.tm_year, t.tm_mon, t.tm_mday]])
     info = [svn_version, buildtime]
     distributedname = distributedname = '%s-v%s-r%s-b%s' % (sw_name, sw_version, svn_version, buildtime)
-    # 删除过时的项目文件目录
-    delete_file_folder(sw_path)
-    # 从svn checkout最新的项目副本，并清理其中的.svn文件夹
-    # sw_path, distributedname, info = get_sw_distributedname(sw_name, sw_version, project_svnpath)
-    # time.sleep(2)
-    # clearsvn(sw_path)
 
     # 在options中生成软件版本信息文件
     sw_info = json.dumps({
@@ -348,7 +340,7 @@ if __name__ == '__main__':
                 version=sw_version,
                 description=u"Application based on PyQt4",
                 script=os.sep.join([os.getcwd(), 'QMain.py']),
-                target_name=sw_name,
+                target_name='QMarkdowner',
                 icon=sw_logoico)
 
         dist.add_modules('PyQt4')
