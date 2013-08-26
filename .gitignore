@@ -1,5 +1,7 @@
 *.py[cod]
-
+*.log
+*.iss
+*.json
 # C extensions
 *.so
 
@@ -8,6 +10,7 @@
 *.egg-info
 dist
 build
+Output
 eggs
 parts
 bin
