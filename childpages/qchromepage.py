@@ -17,9 +17,6 @@ class QChromePage(WebkitBasePage):
     def __init__(self, parent=None):
         super(QChromePage, self).__init__(parent)
         self.parent = parent
-
-        markdownpageinstance = getattr(self.parent, 'MarkdownPage') 
-        print markdownpageinstance.view.page().mainFrame().documentElement().findAll('div').count()
         self.loadfromlocal()
 
     # def auto_html(self, template):
@@ -38,6 +35,12 @@ class QChromePage(WebkitBasePage):
         # self.view.load(url)
         # self.view.setFocus()
 
+    @QtCore.pyqtSlot()
+    def refreshcontent(self):
+        markdownpageinstance = getattr(self.parent, 'MarkdownPage')
+        frame = markdownpageinstance.view.page().mainFrame()
+        c = frame.findFirstElement("#preview")
+        print c.evaluateJavaScript('this.value').toString()
 
 
 if __name__ == '__main__':
