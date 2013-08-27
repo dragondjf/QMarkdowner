@@ -18,6 +18,9 @@ from Cheetah.Template import Template
 
 
 def change_package_fromLib(package_name):
+    '''
+        根据包名从python Lib中获取到包，替换library.zip中名字相同的包
+    '''
     library_zippath = os.getcwd() + os.sep + os.sep.join(['dist', 'library.zip'])
     library_path = os.getcwd() + os.sep + os.sep.join(['dist', 'library'])
     with zipfile.ZipFile(library_zippath, 'r') as zip_file:
@@ -34,6 +37,9 @@ def change_package_fromLib(package_name):
 
 
 def change_package_fromLocal(package_name):
+    '''
+        根据包名从当前项目中获取到包，替换library.zip中名字相同的包
+    '''
     library_zippath = os.getcwd() + os.sep + os.sep.join(['dist', 'library.zip'])
     library_path = os.getcwd() + os.sep + os.sep.join(['dist', 'library'])
     with zipfile.ZipFile(library_zippath, 'r') as zip_file:
@@ -49,6 +55,9 @@ def change_package_fromLocal(package_name):
 
 
 def addFolderToZip(folder, zip_filename):
+    '''
+        将文件夹foldler添加到名字为zip_filename的zip中去
+    '''
     with zipfile.ZipFile(zip_filename, 'w') as zip_file:
         def addhandle(folder, zip_file):
             for f in os.listdir(folder):
@@ -91,6 +100,9 @@ def get_py2exe_datafiles(datapath, relativehead):
 
 
 def write_file(filename, content):
+    '''
+        将相应的content写入filename中去
+    '''
     fd = open(filename, "w")
     fd.write(content)
     fd.close()
@@ -291,6 +303,7 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 
 
 if __name__ == '__main__':
+    # 从config中获取软件的基本信息
     import config
     sw_name = config.__softwarename__
     sw_version = config.__version__
@@ -299,6 +312,7 @@ if __name__ == '__main__':
     sw_description = config.__description__
     sw_logoico = config.__logoico__
 
+    #生成软件版本号
     svn_version = '100'
     t = time.gmtime()
     buildtime = ''.join([str(i) for i in [t.tm_year, t.tm_mon, t.tm_mday]])
@@ -323,7 +337,7 @@ if __name__ == '__main__':
         'MyAppURL': sw_url,
         'MyAppExeName': '%s.exe' % sw_name,
         'distributedname': distributedname,
-        'SetupIconFile': os.sep.join([os.getcwd(), 'dist', 'skin', 'images', 'config8.ico']),
+        'SetupIconFile': sw_logoico,
         'source_exe':  os.sep.join([os.getcwd(), 'dist', '%s.exe' % sw_name]),
         'source_folder': os.sep.join([os.getcwd(), 'dist', '*'])
     }
@@ -370,9 +384,9 @@ if __name__ == '__main__':
 
         dist.build('py2exe')
 
-        '''
-            拷贝响应的图片皮肤和与项目有关的资源文件到打包目录
-        '''
+    '''
+        拷贝响应的图片皮肤和与项目有关的资源文件到打包目录
+    '''
 
     for item in ['skin', 'Bootstrap Metro UI CSS', 'options', 'markdown']:
         shutil.copytree(os.getcwd() + os.sep + item, os.getcwd() + os.sep + os.sep.join(['dist', item]))

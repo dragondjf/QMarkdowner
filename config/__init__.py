@@ -12,7 +12,7 @@ __url__ = "dragondjf.github.com"
 __description__ = '''
     This is a SoftwareFrame based on PyQt4 with Metro Style.
 '''
-__logoico__ = os.sep.join([os.getcwd(), 'skin', 'images', 'config8.ico'])
+__logoico__ = os.sep.join([os.getcwd(), 'skin', 'images', 'MarkdownLife.ico'])
 __version__ = '1.0.0'
 
 
