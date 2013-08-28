@@ -388,7 +388,7 @@ if __name__ == '__main__':
         拷贝响应的图片皮肤和与项目有关的资源文件到打包目录
     '''
 
-    for item in ['skin', 'Bootstrap Metro UI CSS', 'options', 'markdown']:
+    for item in ['skin', 'Bootstrap Metro UI CSS', 'options', 'themecss', 'doc', 'MaDeEditor']:
         shutil.copytree(os.getcwd() + os.sep + item, os.getcwd() + os.sep + os.sep.join(['dist', item]))
 
     for item in ['log']:
@@ -399,6 +399,6 @@ if __name__ == '__main__':
     # 调用外面iscc 运行setup.iss, 生成安装版本exe
     os.system("iscc %s" % setup_iss_file)
 
-    for key in ['build', 'dist', sw_name]:
+    for key in ['build', 'dist', sw_name, 'QMarkdowner-setup.iss']:
         path = os.getcwd() + os.sep + key
         delete_file_folder(path)

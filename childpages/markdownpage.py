@@ -14,8 +14,8 @@ logger = logging.getLogger(__name__)
 
 templateDef_absolute = '''
 #encoding utf-8
-#set $csspath = $os.sep.join([$os.getcwd(), 'md2html', 'MaDeEditor', 'css'])
-#set $jspath = $os.sep.join([$os.getcwd(), 'md2html', 'MaDeEditor', 'js'])
+#set $csspath = $os.sep.join([$os.getcwd(), 'MaDeEditor', 'css'])
+#set $jspath = $os.sep.join([$os.getcwd(), 'MaDeEditor', 'js'])
 
 #set $preview_css=$os.sep.join([$csspath, 'preview.css'])
 #set $style_css=$os.sep.join([$csspath, 'style.css'])
@@ -149,13 +149,13 @@ class MarkdownPage(WebkitBasePage):
         nameSpace = {
         }
         t = Template(template, searchList=[nameSpace])
-        with open(os.sep.join([os.getcwd(), 'md2html', 'MaDeEditor', 'MaDeEditor.html']), 'wb') as f:
+        with open(os.sep.join([os.getcwd(), 'MaDeEditor', 'MaDeEditor.html']), 'wb') as f:
             f.write(str(t))
         return unicode(t)
 
     def loadfromlocal(self):
         html = self.auto_html(templateDef_absolute)
-        url = QtCore.QUrl('file:///' + os.sep.join([os.getcwd(), 'md2html', 'MaDeEditor', 'MaDeEditor.html']))
+        url = QtCore.QUrl('file:///' + os.sep.join([os.getcwd(), 'MaDeEditor', 'MaDeEditor.html']))
         self.view.load(url)
         self.view.setFocus()
 

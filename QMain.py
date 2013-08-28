@@ -99,6 +99,10 @@ class MetroWindow(QtGui.QWidget):
         self.pages.setCurrentWidget(currentpage)
         self.sender().setFocus()
 
+        #切换QChrome页面时进行实时刷新显示预览
+        if isinstance(currentpage.child, QChromePage):
+            currentpage.child.refreshcontent()
+
     @QtCore.pyqtSlot()
     def backnavigationPage(self):
         self.parent().statusBar().hide()

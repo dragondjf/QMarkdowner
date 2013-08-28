@@ -7,8 +7,8 @@ import codecs
 from Cheetah.Template import Template
 
 themes = {
-    'themeblack': [os.sep.join([os.path.dirname(__file__), 'themecss', 'black', css]) for css in ['preview.css', 'style.css']],
-    'themewhite': [os.sep.join([os.path.dirname(__file__), 'themecss', 'white', css]) for css in ['markdown.css']]
+    'themeblack': [os.sep.join([os.getcwd(), 'themecss', 'black', css]) for css in ['preview.css', 'style.css']],
+    'themewhite': [os.sep.join([os.getcwd(), 'themecss', 'white', css]) for css in ['markdown.css']]
 }
 
 
@@ -49,7 +49,7 @@ templateDef_themewhite = '''
 '''
 
 
-def md2html(mdfile, htmlfile, theme):
+def md2html(mdfile, theme, htmlfile=None):
     '''
         mdfile: 需要转换的markdown的完整路径
         htmlfile: 需要生成html文件的完整路径
@@ -68,9 +68,31 @@ def md2html(mdfile, htmlfile, theme):
     template = getattr(currentmodule, 'templateDef_%s' % theme)
     html = Template(template, searchList=[nameSpace])
     # Write string html to disk
-    with open(htmlfile, 'wb') as f:
-        f.write(str(html))
+    if htmlfile:
+        with open(htmlfile, 'wb') as f:
+            f.write(str(html))
     return html, content
+
+def mdhtmlcomplete(mdhtml, theme, htmlfile=None):
+    '''
+        mdfile: 需要转换的markdown的完整路径
+        htmlfile: 需要生成html文件的完整路径
+        theme: themes中任选其中一个
+    '''
+    # Open input file in read, utf-8 mode
+    nameSpace = {
+        'title': u'',
+        'content': mdhtml,
+        'css': themes[theme]
+    }
+    currentmodule = __import__('md2html')
+    template = getattr(currentmodule, 'templateDef_%s' % theme)
+    completehtml = Template(template, searchList=[nameSpace])
+    # Write string completehtml to disk
+    if htmlfile:
+        with open(htmlfile, 'wb') as f:
+            f.write(str(completehtml))
+    return completehtml
 
 
 def main():

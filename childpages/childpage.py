@@ -3,6 +3,8 @@
 from PyQt4 import QtGui
 from PyQt4 import QtCore
 from config import windowsoptions
+from qchromepage import QChromePage
+
 
 class ChildPage(QtGui.QWidget):
     """docstring for childPage"""
@@ -78,6 +80,3 @@ class ChildPage(QtGui.QWidget):
 
         QtCore.QObject.connect(getattr(self, 'Min' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('showMinimized()'))
         QtCore.QObject.connect(getattr(self, 'Close' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('close()'))
-        from childpages import QChromePage
-        if isinstance(self.child, QChromePage):
-            QtCore.QObject.connect(getattr(self, 'QChrome' + 'Button'), QtCore.SIGNAL('clicked()'), self.child, QtCore.SLOT('refreshcontent()'))

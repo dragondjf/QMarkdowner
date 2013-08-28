@@ -8,7 +8,7 @@ from Cheetah.Template import Template
 import json
 import logging
 from webkitbasepage import WebkitBasePage
-from md2html import md2html
+from md2html import mdhtmlcomplete
 
 logger = logging.getLogger(__name__)
 
@@ -17,30 +17,15 @@ class QChromePage(WebkitBasePage):
     def __init__(self, parent=None):
         super(QChromePage, self).__init__(parent)
         self.parent = parent
-        self.loadfromlocal()
 
-    # def auto_html(self, template):
-    #     nameSpace = {
-    #     }
-    #     t = Template(template, searchList=[nameSpace])
-    #     with open(os.sep.join([os.getcwd(), 'md2html', 'MaDeEditor', 'MaDeEditor.html']), 'wb') as f:
-    #         f.write(str(t))
-    #     return unicode(t)
-
-    def loadfromlocal(self):
-        pass
-        # md2html(mdfile, htmlfile, theme)
-        # html = self.auto_html(templateDef_absolute)
-        # url = QtCore.QUrl('file:///' + os.sep.join([os.getcwd(), 'md2html', 'MaDeEditor', 'MaDeEditor.html']))
-        # self.view.load(url)
-        # self.view.setFocus()
-
-    @QtCore.pyqtSlot()
     def refreshcontent(self):
         markdownpageinstance = getattr(self.parent, 'MarkdownPage')
         frame = markdownpageinstance.view.page().mainFrame()
-        c = frame.findFirstElement("#preview")
-        print c.evaluateJavaScript('this.value').toString()
+        mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
+        htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
+        mdhtmlcomplete(mdhtml, 'themeblack', htmlfile)
+        url = QtCore.QUrl('file:///' + htmlfile)
+        self.view.load(url)
 
 
 if __name__ == '__main__':
