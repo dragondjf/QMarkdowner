@@ -101,7 +101,7 @@ mainwindowsettings = {
         ]
     },
     'toolbarsettings': {
-        'visual': True,
+        'visual': False,
         'dockArea': dockAreas['left'],
         'movable': False,
         'toolbars': [

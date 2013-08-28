@@ -236,6 +236,7 @@ class MainWindow(QtGui.QMainWindow):
         toolbarsettings = windowsoptions['mainwindow']['toolbarsettings']
         self.toolbar = QtGui.QToolBar(self)
         self.toolbar.setMovable(toolbarsettings['movable'])
+        self.toolbar.setVisible(toolbarsettings['visual'])
         self.addToolBar(toolbarsettings['dockArea'], self.toolbar)
 
         for toolbar in toolbarsettings['toolbars']:
