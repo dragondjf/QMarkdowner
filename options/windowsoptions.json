@@ -1,0 +1,272 @@
+{
+ "splashimg": "D:\\GitHub\\QMarkdowner\\skin\\images\\splash.png", 
+ "exitdialog": {
+  "logo_title": "", 
+  "title": "\u9000\u51fa", 
+  "minsize": [
+   400, 
+   300
+  ], 
+  "windowicon": "D:\\GitHub\\QMarkdowner\\skin\\images\\MarkdownLife.ico", 
+  "logo_img_url": "D:\\GitHub\\QMarkdowner\\skin\\images\\ov-orange-green.png", 
+  "size": [
+   400, 
+   300
+  ]
+ }, 
+ "shortcutsettings": {}, 
+ "msgdialog": {
+  "logo_title": "", 
+  "title": "\u6d88\u606f\u63d0\u793a", 
+  "minsize": [
+   400, 
+   300
+  ], 
+  "windowicon": "D:\\GitHub\\QMarkdowner\\skin\\images\\MarkdownLife.ico", 
+  "logo_img_url": "D:\\GitHub\\QMarkdowner\\skin\\images\\ov-orange-green.png", 
+  "size": [
+   400, 
+   300
+  ]
+ }, 
+ "confirmdialog": {
+  "logo_title": "", 
+  "title": "\u6d88\u606f\u63d0\u793a", 
+  "minsize": [
+   400, 
+   300
+  ], 
+  "windowicon": "D:\\GitHub\\QMarkdowner\\skin\\images\\MarkdownLife.ico", 
+  "logo_img_url": "D:\\GitHub\\QMarkdowner\\skin\\images\\ov-orange-green.png", 
+  "size": [
+   400, 
+   300
+  ]
+ }, 
+ "numinputdialog": {
+  "logo_title": "", 
+  "title": "\u8f93\u5165\u6574\u6570", 
+  "minsize": [
+   400, 
+   300
+  ], 
+  "windowicon": "D:\\GitHub\\QMarkdowner\\skin\\images\\MarkdownLife.ico", 
+  "logo_img_url": "D:\\GitHub\\QMarkdowner\\skin\\images\\ov-orange-green.png", 
+  "size": [
+   400, 
+   300
+  ]
+ }, 
+ "ipaddressdialog": {
+  "logo_title": "", 
+  "title": "\u8f93\u5165\u8bbf\u95ee\u7684url", 
+  "minsize": [
+   400, 
+   300
+  ], 
+  "windowicon": "D:\\GitHub\\QMarkdowner\\skin\\images\\MarkdownLife.ico", 
+  "logo_img_url": "D:\\GitHub\\QMarkdowner\\skin\\images\\ov-orange-green.png", 
+  "size": [
+   400, 
+   300
+  ]
+ }, 
+ "login_window": {
+  "logo_title": "", 
+  "title": "\u767b\u9646", 
+  "minsize": [
+   400, 
+   300
+  ], 
+  "windowicon": "D:\\GitHub\\QMarkdowner\\skin\\images\\MarkdownLife.ico", 
+  "logo_img_url": "D:\\GitHub\\QMarkdowner\\skin\\images\\ov-orange-green.png", 
+  "size": [
+   400, 
+   300
+  ]
+ }, 
+ "mainwindow": {
+  "postion": [
+   300, 
+   300
+  ], 
+  "navigationvisual": true, 
+  "statusbarsettings": {
+   "initmessage": "Ready", 
+   "minimumHeight": 30, 
+   "visual": true
+  }, 
+  "minsize": [
+   800, 
+   600
+  ], 
+  "fullscreenflag": true, 
+  "size": [
+   800, 
+   600
+  ], 
+  "title": "", 
+  "menusettings": {
+   "menus": [
+    {
+     "name": "File", 
+     "actions": [
+      {
+       "trigger": "Exit", 
+       "icon": "", 
+       "name": "Exit", 
+       "shortcut": "Ctrl+K", 
+       "name_zh": "\u9000\u51fa"
+      }
+     ], 
+     "name_zh": ""
+    }, 
+    {
+     "name": "Preference", 
+     "actions": [
+      {
+       "trigger": "Settings", 
+       "icon": "", 
+       "name": "Settings", 
+       "shortcut": "", 
+       "name_zh": "\u754c\u9762\u8bbe\u5b9a"
+      }, 
+      {
+       "trigger": "KeyBindings", 
+       "icon": "", 
+       "name": "Key Bindings", 
+       "shortcut": "", 
+       "name_zh": "\u5feb\u6377\u952e"
+      }
+     ], 
+     "name_zh": ""
+    }, 
+    {
+     "name": "Help", 
+     "actions": [
+      {
+       "trigger": "Documentation", 
+       "icon": "", 
+       "name": "Documentation", 
+       "shortcut": "", 
+       "name_zh": "\u6587\u6863"
+      }, 
+      {
+       "trigger": "ActivityLogging", 
+       "icon": "", 
+       "name": "Activity Logging", 
+       "shortcut": "", 
+       "name_zh": "\u6d3b\u52a8\u65e5\u5fd7"
+      }, 
+      {
+       "trigger": "EnterLicense", 
+       "icon": "", 
+       "name": "Enter License", 
+       "shortcut": "", 
+       "name_zh": "\u8ba4\u8bc1"
+      }, 
+      {
+       "trigger": "About", 
+       "icon": "", 
+       "name": "About", 
+       "shortcut": "", 
+       "name_zh": "\u5173\u4e8e"
+      }
+     ], 
+     "name_zh": ""
+    }
+   ], 
+   "visual": false
+  }, 
+  "windowicon": "D:\\GitHub\\QMarkdowner\\skin\\images\\MarkdownLife.ico", 
+  "toolbarsettings": {
+   "toolbars": [
+    {
+     "name_zh": "", 
+     "shortcut": "Ctrl+K", 
+     "trigger": "", 
+     "tooltip": "Import Markdown File", 
+     "icon": "", 
+     "id": "ImportButton", 
+     "name": ""
+    }, 
+    {
+     "name_zh": "", 
+     "shortcut": "Ctrl+M", 
+     "trigger": "", 
+     "tooltip": "Export Markdown File", 
+     "icon": "", 
+     "id": "ExportButton", 
+     "name": ""
+    }, 
+    {
+     "name_zh": "", 
+     "shortcut": "Ctrl+P", 
+     "trigger": "", 
+     "tooltip": "Preview Markdown File in fullscreen", 
+     "icon": "", 
+     "id": "PreviewButton", 
+     "name": ""
+    }, 
+    {
+     "name_zh": "", 
+     "shortcut": "Ctrl+L", 
+     "trigger": "", 
+     "tooltip": "Share Markdown File in Interent", 
+     "icon": "", 
+     "id": "ShareButton", 
+     "name": ""
+    }, 
+    {
+     "name_zh": "", 
+     "shortcut": "", 
+     "trigger": "", 
+     "tooltip": "Min Window", 
+     "icon": "", 
+     "id": "MinButton", 
+     "name": ""
+    }, 
+    {
+     "name_zh": "", 
+     "shortcut": "", 
+     "trigger": "", 
+     "tooltip": "Close Window", 
+     "icon": "", 
+     "id": "CloseButton", 
+     "name": ""
+    }
+   ], 
+   "visual": false, 
+   "movable": false, 
+   "dockArea": 1
+  }, 
+  "centralwindow": {
+   "pagetags_zh": {
+    "QChrome": "QChrome(\u8c03\u8bd5)", 
+    "About": "\u5173\u4e8e(About)", 
+    "Markdown": "Markdown\u7f16\u8f91(Edit)"
+   }, 
+   "pagetags": [
+    [
+     "Markdown", 
+     "QChrome", 
+     "About"
+    ]
+   ]
+  }
+ }, 
+ "urldialog": {
+  "logo_title": "", 
+  "title": "\u8f93\u5165\u8bbf\u95ee\u7684url", 
+  "minsize": [
+   400, 
+   300
+  ], 
+  "windowicon": "D:\\GitHub\\QMarkdowner\\skin\\images\\MarkdownLife.ico", 
+  "logo_img_url": "D:\\GitHub\\QMarkdowner\\skin\\images\\ov-orange-green.png", 
+  "size": [
+   400, 
+   300
+  ]
+ }
+}
