@@ -24,7 +24,7 @@ mainwindowsettings = {
         'pagetags': [['Markdown', 'QChrome', 'About']],
         'pagetags_zh': {
             'Markdown': u'Markdown编辑(Edit)',
-            'QChrome': u'QChrome(调试)',
+            'QChrome': u'Markdown预览(Preview)',
             'About': u'关于(About)',
         }
     },
