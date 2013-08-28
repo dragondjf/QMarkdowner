@@ -30,4 +30,5 @@ QMarkdowner
     联系邮箱：dragondjf@gmail.com, ding465398889@163.com
     联系QQ：465398889
     GitHub地址：https://github.com/dragondjf/
+    软件发布地址：http://aj5sjte66c.l35.yunpan.cn/lk/QXW2ntCvGw83j
     刻骨铭心：感谢开源精神，分享成就自我！
