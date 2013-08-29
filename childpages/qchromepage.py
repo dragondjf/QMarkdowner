@@ -26,7 +26,7 @@ class QChromePage(WebkitBasePage):
 
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
         htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
-        mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themeblack'], htmlfile)
+        mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themegithub'], htmlfile)
         url = QtCore.QUrl('file:///' + htmlfile)
         self.view.load(url)
 

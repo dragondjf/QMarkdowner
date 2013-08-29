@@ -30,26 +30,6 @@ templateDef = '''
 </html>
 '''
 
-templateDef1 = '''
-#encoding utf-8
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>$title</title>
-        #for $cssfile in $css
-            <link href="file:///$cssfile" rel="stylesheet" type="text/css">
-        #end for
-    </head>
-        <body>
-            <div id="preview_pane" class="pane" style="width: 780px; margin:0px auto">
-                <div id="preview">$content</div>
-            </div>
-        </body>
-</html>
-'''
-
-
 def md2html(mdfile, theme, htmlfile=None):
     '''
         mdfile: 需要转换的markdown的完整路径
