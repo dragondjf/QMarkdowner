@@ -9,6 +9,7 @@ import json
 import logging
 from webkitbasepage import WebkitBasePage
 from md2html import mdhtmlcomplete
+from config import windowsoptions
 
 logger = logging.getLogger(__name__)
 
@@ -25,10 +26,10 @@ class QChromePage(WebkitBasePage):
 
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
         htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
-        mdhtmlcomplete(mdhtml, 'themeblack', htmlfile)
+        mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themeblack'], htmlfile)
         url = QtCore.QUrl('file:///' + htmlfile)
         self.view.load(url)
-        
+
 
     def finishLoading(self):
         pass

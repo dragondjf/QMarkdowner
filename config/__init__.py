@@ -23,6 +23,8 @@ logo_title = u''
 from mainwindowcfg import mainwindowsettings
 from utildialogcfg import utidialogsettings
 from shortcutcfg import shortcutsettings
+from markdownthemecfg import markdownthemes
+
 try:
     with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'r') as f:
         windowsoptions = json.load(f)
@@ -34,5 +36,6 @@ except Exception, e:
         'mainwindow': mainwindowsettings,
         'shortcutsettings': shortcutsettings,
         'splashimg': os.sep.join([os.getcwd(), 'skin', 'images', 'splash.png']),
+        'markdownthemes': markdownthemes
     }
     windowsoptions.update(utidialogsettings)

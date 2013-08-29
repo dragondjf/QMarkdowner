@@ -6,13 +6,8 @@ import markdown
 import codecs
 from Cheetah.Template import Template
 
-themes = {
-    'themeblack': [os.sep.join([os.getcwd(), 'webjscss', 'themecss', 'black', css]) for css in ['preview.css', 'style.css']],
-    'themewhite': [os.sep.join([os.getcwd(), 'webjscss', 'themecss', 'white', css]) for css in ['markdown.css']]
-}
 
-
-templateDef_themeblack = '''
+templateDef = '''
 #encoding utf-8
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
@@ -24,14 +19,18 @@ templateDef_themeblack = '''
         #end for
     </head>
         <body>
-            <div id="preview_pane" class="pane" style="width: 780px; margin:0px auto">
-                <div id="preview">$content</div>
-            </div>
+        <div id="main_content_wrap" class="outer" style="margin:0px auto">
+            <section id="main_content" class="inner">
+                <div id="preview_pane" class="pane" style="width: 780px; margin:0px auto">
+                    <div id="preview">$content</div>
+                </div>
+            </section>
+        </div>
         </body>
 </html>
 '''
 
-templateDef_themewhite = '''
+templateDef1 = '''
 #encoding utf-8
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
@@ -64,10 +63,10 @@ def md2html(mdfile, theme, htmlfile=None):
     nameSpace = {
         'title': u'',
         'content': content,
-        'css': themes[theme]
+        'css': theme
     }
     currentmodule = __import__('md2html')
-    template = getattr(currentmodule, 'templateDef_%s' % theme)
+    template = getattr(currentmodule, 'templateDef')
     html = Template(template, searchList=[nameSpace])
     # Write string html to disk
     if htmlfile:
@@ -85,10 +84,10 @@ def mdhtmlcomplete(mdhtml, theme, htmlfile=None):
     nameSpace = {
         'title': u'',
         'content': mdhtml,
-        'css': themes[theme]
+        'css': theme
     }
     currentmodule = __import__('md2html')
-    template = getattr(currentmodule, 'templateDef_%s' % theme)
+    template = getattr(currentmodule, 'templateDef')
     completehtml = Template(template, searchList=[nameSpace])
     # Write string completehtml to disk
     if htmlfile:

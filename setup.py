@@ -388,7 +388,7 @@ if __name__ == '__main__':
         拷贝响应的图片皮肤和与项目有关的资源文件到打包目录
     '''
 
-    for item in ['skin', 'Bootstrap Metro UI CSS', 'options', 'themecss', 'doc', 'MaDeEditor']:
+    for item in ['skin', 'webjscss', 'options', 'doc']:
         shutil.copytree(os.getcwd() + os.sep + item, os.getcwd() + os.sep + os.sep.join(['dist', item]))
 
     for item in ['log']:
