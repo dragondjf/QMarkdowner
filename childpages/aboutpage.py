@@ -14,8 +14,8 @@ logger = logging.getLogger(__name__)
 
 templateDef_absolute = '''
 #encoding utf-8
-#set $csspath = $os.sep.join([$os.getcwd(), 'Bootstrap Metro UI CSS'])
-#set $jspath = $os.sep.join([$os.getcwd(), 'Bootstrap Metro UI CSS', 'js'])
+#set $csspath = $os.sep.join([$os.getcwd(), 'webjscss', 'Bootstrap Metro UI CSS'])
+#set $jspath = $os.sep.join([$os.getcwd(), 'webjscss', 'Bootstrap Metro UI CSS', 'js'])
 #set $imagepath = $os.sep.join([$os.getcwd(), 'skin', 'images'])
 #set $helpimagepath = $os.sep.join([$os.getcwd(), 'skin', 'images', 'help'])
 
@@ -24,8 +24,8 @@ templateDef_absolute = '''
 #set $site_css=$os.sep.join([$csspath, 'site.css'])
 #set $prettify_css=$os.sep.join([$csspath, 'prettify.css'])
 
-#set $accordion_js=$os.sep.join([$jspath, 'accordion_js'])
-#set $button_js=$os.sep.join([$jspath, 'button.js'])
+#set $accordion_js=$os.sep.join([$jspath, 'accordion.js'])
+#set $buttonset_js=$os.sep.join([$jspath, 'buttonset.js'])
 #set $calendar_js=$os.sep.join([$jspath, 'calendar.js'])
 #set $carousel_js=$os.sep.join([$jspath, 'carousel.js'])
 #set $dropdown_js=$os.sep.join([$jspath, 'dropdown.js'])
@@ -62,14 +62,14 @@ templateDef_absolute = '''
     <link href="file:///$modern_responsive_css" rel="stylesheet" type="text/css">
     <link href="file:///$site_css" rel="stylesheet" type="text/css">
     <link href="file:///$prettify_css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="file:///$accordion_js"></script>
-    <script type="text/javascript" src="file:///$button_js"></script>
-    <script type="text/javascript" src="file:///$calendar_js"></script>
-    <script type="text/javascript" src="file:///$carousel_js"></script>
-    <script type="text/javascript" src="file:///$dropdown_js"></script>
     <script type="text/javascript" src="file:///$jquery_190_min_js"></script>
     <script type="text/javascript" src="file:///$jquery_mousewheel_min_js"></script>
     <script type="text/javascript" src="file:///$jquery_sharrre_134_min_js"></script>
+    <script type="text/javascript" src="file:///$accordion_js"></script>
+    <script type="text/javascript" src="file:///$buttonset_js"></script>
+    <script type="text/javascript" src="file:///$calendar_js"></script>
+    <script type="text/javascript" src="file:///$carousel_js"></script>
+    <script type="text/javascript" src="file:///$dropdown_js"></script>
     <script type="text/javascript" src="file:///$moment_js"></script>
     <script type="text/javascript" src="file:///$moment_langs_js"></script>
     <script type="text/javascript" src="file:///$pagecontrol_js"></script>

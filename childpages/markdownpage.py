@@ -14,8 +14,8 @@ logger = logging.getLogger(__name__)
 
 templateDef_absolute = '''
 #encoding utf-8
-#set $csspath = $os.sep.join([$os.getcwd(), 'MaDeEditor', 'css'])
-#set $jspath = $os.sep.join([$os.getcwd(), 'MaDeEditor', 'js'])
+#set $csspath = $os.sep.join([$os.getcwd(), 'webjscss', 'MaDeEditor', 'css'])
+#set $jspath = $os.sep.join([$os.getcwd(), 'webjscss', 'MaDeEditor', 'js'])
 
 #set $preview_css=$os.sep.join([$csspath, 'preview.css'])
 #set $style_css=$os.sep.join([$csspath, 'style.css'])
@@ -119,7 +119,7 @@ class MarkdownPage(WebkitBasePage):
         super(MarkdownPage, self).__init__(parent)
         self.parent = parent
 
-        jspath = os.sep.join([os.getcwd(), 'markdown', 'js'])
+        jspath = os.sep.join([os.getcwd(), 'webjscss', 'MaDeEditor','js'])
         jsfiles = [
             'jquery.js', 'made.js', 'ace.js', 'mode-markdown.js', 
             'theme-textmate.js', 'theme-twilight.js', 'Markdown.Converter.js']
@@ -149,13 +149,13 @@ class MarkdownPage(WebkitBasePage):
         nameSpace = {
         }
         t = Template(template, searchList=[nameSpace])
-        with open(os.sep.join([os.getcwd(), 'MaDeEditor', 'MaDeEditor.html']), 'wb') as f:
+        with open(os.sep.join([os.getcwd(), 'webjscss', 'MaDeEditor', 'MaDeEditor.html']), 'wb') as f:
             f.write(str(t))
         return unicode(t)
 
     def loadfromlocal(self):
         html = self.auto_html(templateDef_absolute)
-        url = QtCore.QUrl('file:///' + os.sep.join([os.getcwd(), 'MaDeEditor', 'MaDeEditor.html']))
+        url = QtCore.QUrl('file:///' + os.sep.join([os.getcwd(), 'webjscss', 'MaDeEditor', 'MaDeEditor.html']))
         self.view.load(url)
         self.view.setFocus()
 

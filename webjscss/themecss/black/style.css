@@ -15,7 +15,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     -webkit-font-smoothing: antialiased;
 }
 body {
-    margin-left: 415.5px; 
+    padding: 0px auto;
     background: rgb(255, 255, 255);
 }
 

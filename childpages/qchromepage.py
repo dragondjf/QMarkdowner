@@ -17,15 +17,21 @@ class QChromePage(WebkitBasePage):
     def __init__(self, parent=None):
         super(QChromePage, self).__init__(parent)
         self.parent = parent
+        self.view.loadFinished.connect(self.finishLoading)
 
     def refreshcontent(self):
         markdownpageinstance = getattr(self.parent, 'MarkdownPage')
         frame = markdownpageinstance.view.page().mainFrame()
+
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
         htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
         mdhtmlcomplete(mdhtml, 'themeblack', htmlfile)
         url = QtCore.QUrl('file:///' + htmlfile)
         self.view.load(url)
+        
+
+    def finishLoading(self):
+        pass
 
 
 if __name__ == '__main__':

@@ -7,8 +7,8 @@ import codecs
 from Cheetah.Template import Template
 
 themes = {
-    'themeblack': [os.sep.join([os.getcwd(), 'themecss', 'black', css]) for css in ['preview.css', 'style.css']],
-    'themewhite': [os.sep.join([os.getcwd(), 'themecss', 'white', css]) for css in ['markdown.css']]
+    'themeblack': [os.sep.join([os.getcwd(), 'webjscss', 'themecss', 'black', css]) for css in ['preview.css', 'style.css']],
+    'themewhite': [os.sep.join([os.getcwd(), 'webjscss', 'themecss', 'white', css]) for css in ['markdown.css']]
 }
 
 
@@ -24,7 +24,7 @@ templateDef_themeblack = '''
         #end for
     </head>
         <body>
-            <div id="preview_pane" class="pane" style="width: 780px;">
+            <div id="preview_pane" class="pane" style="width: 780px; margin:0px auto">
                 <div id="preview">$content</div>
             </div>
         </body>
@@ -43,7 +43,9 @@ templateDef_themewhite = '''
         #end for
     </head>
         <body>
-            $content
+            <div id="preview_pane" class="pane" style="width: 780px; margin:0px auto">
+                <div id="preview">$content</div>
+            </div>
         </body>
 </html>
 '''
