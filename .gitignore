@@ -2,7 +2,7 @@
 *.log
 *.iss
 *.json
-markdown/markdown.html
+doc\preview.html
 # C extensions
 *.so
 
