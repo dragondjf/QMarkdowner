@@ -1,8 +1,10 @@
 *.py[cod]
-*.log
 *.iss
+<<<<<<< HEAD
 *.json
 doc\preview.html
+=======
+>>>>>>> 9696481485156bf6277fdca1031182927ca051f3
 # C extensions
 *.so
 
