@@ -409,3 +409,6 @@ QPushButton#DownloadButton:pressed, QPushButton#DownloadButton:checked
     background-repeat:no-repeat;
     background-position: center left;
 }
+
+
+

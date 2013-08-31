@@ -18,17 +18,18 @@ templateDef = '''
             <link href="file:///$cssfile" rel="stylesheet" type="text/css">
         #end for
     </head>
-        <body>
-        <div id="main_content_wrap" class="outer" style="margin:0px auto">
-            <section id="main_content" class="inner">
-                <div id="preview_pane" class="pane" style="width: 780px; margin:0px auto">
-                    <div id="preview">$content</div>
-                </div>
-            </section>
-        </div>
+        <body style="background: transparent;">
+            <div id="main_content_wrap" class="outer" style="margin:0px auto">
+                <section id="main_content" class="inner">
+                    <div id="preview_pane" class="pane" style="width: 780px; margin:0px auto">
+                        <div id="preview">$content</div>
+                    </div>
+                </section>
+            </div>
         </body>
 </html>
 '''
+
 
 def md2html(mdfile, theme, htmlfile=None):
     '''
@@ -52,7 +53,8 @@ def md2html(mdfile, theme, htmlfile=None):
     if htmlfile:
         with open(htmlfile, 'wb') as f:
             f.write(str(html))
-    return html, content
+    return unicode(html), content
+
 
 def mdhtmlcomplete(mdhtml, theme, htmlfile=None):
     '''
@@ -73,7 +75,7 @@ def mdhtmlcomplete(mdhtml, theme, htmlfile=None):
     if htmlfile:
         with open(htmlfile, 'wb') as f:
             f.write(str(completehtml))
-    return completehtml
+    return unicode(completehtml)
 
 
 def main():

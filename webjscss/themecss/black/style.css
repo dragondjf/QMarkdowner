@@ -16,7 +16,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 body {
     padding: 0px auto;
-    background: rgb(255, 255, 255);
+    background: transparent;
 }
 
 #bar {

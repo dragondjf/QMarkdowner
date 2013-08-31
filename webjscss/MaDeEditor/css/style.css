@@ -16,7 +16,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 body {
     line-height: 1.5em;
-    background: white;
+    background: transparent;
 }
 
 #bar {
