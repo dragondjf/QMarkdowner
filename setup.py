@@ -313,20 +313,17 @@ if __name__ == '__main__':
     sw_logoico = config.__logoico__
 
     #生成软件版本号
-    svn_version = '100'
+    svn_version = '360'
     t = time.gmtime()
-    buildtime = ''.join([str(i) for i in [t.tm_year, t.tm_mon, t.tm_mday]])
+    if t.tm_mon < 10 or t.tm_mday < 10:
+        mon = '0%d' % t.tm_mon
+        day = '0%d' % t.tm_mday
+        buildtime = ''.join([str(i) for i in [t.tm_year, mon, day]])
+    else:   
+        buildtime = ''.join([str(i) for i in [t.tm_year, t.tm_mon, t.tm_mday]])
     info = [svn_version, buildtime]
     distributedname = distributedname = '%s-v%s-r%s-b%s' % (sw_name, sw_version, svn_version, buildtime)
 
-    # 在options中生成软件版本信息文件
-    sw_info = json.dumps({
-        "sw_name": sw_name, 
-        "sw_version": 'v%s' % sw_version, 
-        "svn_version": 'r%s' % info[0], 
-        "buildtime": 'b%s' % info[1]},
-        indent=3)
-    write_file(os.sep.join([os.getcwd(), 'options', 'ver.json']), sw_info)
 
     # 利用模板自动生成setup.iss打包脚本
     setup_iss_file = '%s-setup.iss' % sw_name
@@ -388,13 +385,22 @@ if __name__ == '__main__':
         拷贝响应的图片皮肤和与项目有关的资源文件到打包目录
     '''
 
-    for item in ['skin', 'webjscss', 'options', 'doc']:
+    for item in ['skin', 'webjscss', 'doc']:
         shutil.copytree(os.getcwd() + os.sep + item, os.getcwd() + os.sep + os.sep.join(['dist', item]))
 
     for item in ['log']:
         os.mkdir(os.getcwd() + os.sep + os.sep.join(['dist', item]))
 
     change_package_fromLocal('Cheetah')
+
+    # 在options中生成软件版本信息文件
+    sw_info = json.dumps({
+        "sw_name": sw_name, 
+        "sw_version": 'v%s' % sw_version, 
+        "svn_version": 'r%s' % info[0], 
+        "buildtime": 'b%s' % info[1]},
+        indent=3)
+    write_file(os.sep.join([os.getcwd(), 'options', 'ver.json']), sw_info)
 
     # 调用外面iscc 运行setup.iss, 生成安装版本exe
     os.system("iscc %s" % setup_iss_file)
