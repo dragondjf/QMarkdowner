@@ -10,15 +10,14 @@ QMarkdowner
     what you wirte in html style;
         If you  want to preview in an big windown, you can click Markdown预览（Preview）
     button.
-        支持边编辑边预览和全屏预览。
-####3. Improvement(改进)
->代码重构改进    
->> 将web技术相关的库与主题文件等进行分类，组织合理的全局代码结构    
+        支持边编辑边预览和全屏预览;
+        支持导出编辑的markdown文件;
+        支持多风格预览和导出：四种主流的markdown预览主题可供选择, 导出的html中包含相应的风格，无须额外css支持;
+
+####3. Improvement(改进)    
 >> 利用pyqt4原生的控件实现整个逻辑
 
->功能增加改进    
->>  一键导出markdown文档和对应的html文档    
->>  支持markdown对应的html文档多风格预览   
+>功能增加改进     
 >>  一键发布到Evernote, github， blog等     
 >>    支持markdown到PDF的转换和导出
 
