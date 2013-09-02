@@ -14,9 +14,9 @@ templateDef = '''
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>$title</title>
-        #for $cssfile in $css
-            <link href="file:///$cssfile" rel="stylesheet" type="text/css">
-        #end for
+        <style>
+            $themecss
+        </style>
     </head>
         <body style="background: transparent;">
             <div id="main_content_wrap" class="outer" style="margin:0px auto">
@@ -40,11 +40,15 @@ def md2html(mdfile, theme, htmlfile=None):
     # Open input file in read, utf-8 mode
     input_file = codecs.open(mdfile, mode="r", encoding="utf8")
     text = input_file.read()
+    themecss = ''
+    for css in theme:
+        theme_file = codecs.open(css, mode="r", encoding="utf8")
+        themecss  += theme_file.read()
     content = markdown.markdown(text)
     nameSpace = {
         'title': u'',
         'content': content,
-        'css': theme
+        'themecss': themecss
     }
     currentmodule = __import__('md2html')
     template = getattr(currentmodule, 'templateDef')
@@ -63,10 +67,14 @@ def mdhtmlcomplete(mdhtml, theme, htmlfile=None):
         theme: themes中任选其中一个
     '''
     # Open input file in read, utf-8 mode
+    themecss = ''
+    for css in theme:
+        theme_file = codecs.open(css, mode="r", encoding="utf8")
+        themecss  += theme_file.read()
     nameSpace = {
         'title': u'',
         'content': mdhtml,
-        'css': theme
+        'themecss': themecss
     }
     currentmodule = __import__('md2html')
     template = getattr(currentmodule, 'templateDef')
