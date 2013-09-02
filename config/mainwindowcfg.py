@@ -19,7 +19,7 @@ mainwindowsettings = {
     'minsize': (800, 600),
     'size': (800, 600),
     'windowicon': logo_ico,
-    'fullscreenflag': True,
+    'fullscreenflag': False,
     'centralwindow': {
         'pagetags': [['Markdown', 'QChrome', 'About']],
         'pagetags_zh': {

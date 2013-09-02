@@ -178,9 +178,9 @@ class MainWindow(QtGui.QMainWindow):
         self.navigationvisual = navigationvisual   # 导航标志，初始化时显示导航
         self.layout().setContentsMargins(0, 0, 0, 0)
 
-        # self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)  # 隐藏标题栏， 可以拖动边框改变大小
-        # self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 隐藏标题栏， 无法改变大小
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowMinimizeButtonHint)  # 无边框， 带系统菜单， 可以最小化
+        self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)  # 隐藏标题栏， 可以拖动边框改变大小
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 隐藏标题栏， 无法改变大小
+        # self.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowMinimizeButtonHint)  # 无边框， 带系统菜单， 可以最小化
 
     def setskin(self):
         for buttons in windowsoptions['mainwindow']['centralwindow']['pagetags']:
@@ -345,6 +345,18 @@ class MainWindow(QtGui.QMainWindow):
                 self.statusbar.hide()
             else:
                 self.statusbar.show()
+
+    def mousePressEvent(self,event):
+       # 鼠标点击事件
+       if event.button() == QtCore.Qt.LeftButton:
+           self.dragPosition = event.globalPos() - self.frameGeometry().topLeft()
+           event.accept()
+
+    def mouseMoveEvent(self,event):
+       # 鼠标移动事件
+        if event.buttons() ==QtCore.Qt.LeftButton:
+            self.move(event.globalPos() - self.dragPosition)
+            event.accept() 
 
 
 class SplashScreen(QtGui.QSplashScreen):
