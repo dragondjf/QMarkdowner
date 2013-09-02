@@ -14,6 +14,15 @@ templateDef = '''
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>$title</title>
+        <style type='text/css'>
+            @font-face { 
+                font-family: "code2000";
+                src: url("$pdfzhfont")
+            }
+            html {
+                font-family: code2000;
+            }
+        </style>
         <style>
             $themecss
         </style>
@@ -48,7 +57,8 @@ def md2html(mdfile, theme, htmlfile=None):
     nameSpace = {
         'title': u'',
         'content': content,
-        'themecss': themecss
+        'themecss': themecss,
+        'pdfzhfont': os.sep.join([os.getcwd(), 'doc', 'code2000.ttf'])
     }
     currentmodule = __import__('md2html')
     template = getattr(currentmodule, 'templateDef')
@@ -74,7 +84,8 @@ def mdhtmlcomplete(mdhtml, theme, htmlfile=None):
     nameSpace = {
         'title': u'',
         'content': mdhtml,
-        'themecss': themecss
+        'themecss': themecss,
+        'pdfzhfont': os.sep.join([os.getcwd(), 'doc', 'code2000.ttf'])
     }
     currentmodule = __import__('md2html')
     template = getattr(currentmodule, 'templateDef')

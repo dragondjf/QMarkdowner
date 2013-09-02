@@ -75,7 +75,7 @@ class QChromePage(WebkitBasePage):
             controlbar_layout.addWidget(QtGui.QLabel(), 0, i)
         # controlbar_layout.addWidget(exportmarkdownButton, 0, n-4)
         controlbar_layout.addWidget(exporthtmlButton, 0, n-3)
-        controlbar_layout.addWidget(exportpdfButton, 0, n-2)
+        # controlbar_layout.addWidget(exportpdfButton, 0, n-2)
         controlbar_layout.addWidget(QtGui.QLabel(), 0, n)
         self.controlbar.setLayout(controlbar_layout)
         controlbar_layout.setContentsMargins(0, 0, 0, 0)
@@ -83,6 +83,7 @@ class QChromePage(WebkitBasePage):
 
         exporthtmlButton.clicked.connect(self.exporthtml)
         exportpdfButton.clicked.connect(self.exportpdf)
+        exportpdfButton.setDisabled(True)
 
     def settheme(self):
         theme = self.sender().objectName()[5:-6]
@@ -107,10 +108,10 @@ class QChromePage(WebkitBasePage):
         reload(sys)
         sys.setdefaultencoding('utf-8')
         if filename:
-            with open(str(filename), 'wb') as f:
-                f.write(str(self.html))
-
-
+            import xhtml2pdf.pisa as pisa
+            fpdf = open(filename,'wb')
+            pdf = pisa.CreatePDF(unicode(self.html), fpdf)
+            fpdf.close()
 
 
 if __name__ == '__main__':
