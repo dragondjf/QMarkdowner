@@ -286,8 +286,12 @@ class MainWindow(QtGui.QMainWindow):
     def windowMaxNormal(self):
         if self.isFullScreen():
             self.showNormal()
+            self.sender().setObjectName("MaxButton")
+            set_skin(self, os.sep.join(['skin', 'qss', 'MetroMainwindow.qss']))  # 设置主窗口样式
         else:
             self.showFullScreen()
+            self.sender().setObjectName("MaxNormalButton")
+            set_skin(self, os.sep.join(['skin', 'qss', 'MetroMainwindow.qss']))  # 设置主窗口样式
 
     def closeEvent(self, evt):
         flag, exitflag = utildialog.exit(windowsoptions['exitdialog'])

@@ -282,6 +282,36 @@ QPushButton#MaxButton:pressed, QPushButton#MaxButton:checked
     background-position: center;
 }
 
+
+QPushButton#MaxNormalButton{
+    width: 50px;
+    height: 50px;
+    background-image: url(skin/icons/dark/appbar.fullscreen.box.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+QPushButton#MaxNormalButton:hover, QPushButton#MaxNormalButton:pressed , QPushButton#MaxNormalButton:checked
+{
+    background-color: rgb(85, 170, 255);
+    text-align: center;
+    font-weight:100
+}
+
+QPushButton#MaxNormalButton:hover
+{
+    background-image: url(skin/icons/dark/appbar.fullscreen.box.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+QPushButton#MaxNormalButton:pressed, QPushButton#MaxNormalButton:checked
+{
+    background-image: url(skin/icons/light/appbar.fullscreen.box.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+
 QPushButton#CloseButton{
     width: 50px;
     height: 50px;

@@ -59,14 +59,15 @@ class ChildPage(QtGui.QWidget):
 
 
     def createNavigationByPage(self):
-        navbutton = windowsoptions['mainwindow']['centralwindow']['pagetags'][0] + ['Min', 'Close']
+        systembuttons = ['Min', 'Max', 'Close']
+        navbutton = windowsoptions['mainwindow']['centralwindow']['pagetags'][0] + systembuttons
         navbutton_zh = windowsoptions['mainwindow']['centralwindow']['pagetags_zh']
         self.navigation = QtGui.QWidget()
         navigationLayout = QtGui.QHBoxLayout()
 
         for item in navbutton:
             button = item + 'Button'
-            if item not in ['Min', 'Close']:
+            if item not in systembuttons:
                 setattr(self, button, QtGui.QPushButton(navbutton_zh[item]))
                 getattr(self,  button).clicked.connect(self.parent.childpageChange)
             else:
@@ -79,4 +80,5 @@ class ChildPage(QtGui.QWidget):
         self.navigation.setContentsMargins(0, 0, 0, 0)
 
         QtCore.QObject.connect(getattr(self, 'Min' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('showMinimized()'))
+        QtCore.QObject.connect(getattr(self, 'Max' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('windowMaxNormal()'))
         QtCore.QObject.connect(getattr(self, 'Close' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('close()'))
