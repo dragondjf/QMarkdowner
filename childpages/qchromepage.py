@@ -42,10 +42,10 @@ class QChromePage(WebkitBasePage):
         controlbar_layout = QtGui.QGridLayout()
 
         self.pageLabel = QtGui.QLabel()
-        # exportmarkdownButton = QtGui.QPushButton(u'导出md')
-        # exportmarkdownButton.setObjectName('ExpmarkdownButton')
-        # exportmarkdownButton.setToolTip(u'导出md')
-        # self.exportmarkdownButton = exportmarkdownButton
+        exportmarkdownButton = QtGui.QPushButton(u'导出md')
+        exportmarkdownButton.setObjectName('ExpmarkdownButton')
+        exportmarkdownButton.setToolTip(u'导出md')
+        self.exportmarkdownButton = exportmarkdownButton
 
         exporthtmlButton = QtGui.QPushButton(u'导出HTML')
         exporthtmlButton.setObjectName('ExphtmlButton')
@@ -73,7 +73,7 @@ class QChromePage(WebkitBasePage):
 
         for i in xrange(len(themes) + blank1, len(themes) + blank1 + blank2):
             controlbar_layout.addWidget(QtGui.QLabel(), 0, i)
-        # controlbar_layout.addWidget(exportmarkdownButton, 0, n-4)
+        controlbar_layout.addWidget(exportmarkdownButton, 0, n-4)
         controlbar_layout.addWidget(exporthtmlButton, 0, n-3)
         # controlbar_layout.addWidget(exportpdfButton, 0, n-2)
         controlbar_layout.addWidget(QtGui.QLabel(), 0, n)
@@ -81,6 +81,7 @@ class QChromePage(WebkitBasePage):
         controlbar_layout.setContentsMargins(0, 0, 0, 0)
         self.controlbar.setMaximumHeight(50)
 
+        exportmarkdownButton.clicked.connect(self.exportmarkdown)
         exporthtmlButton.clicked.connect(self.exporthtml)
         exportpdfButton.clicked.connect(self.exportpdf)
         exportpdfButton.setDisabled(True)
@@ -92,6 +93,18 @@ class QChromePage(WebkitBasePage):
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
         self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['theme%s'%theme])
         self.view.setHtml(self.html, QtCore.QUrl(os.getcwd()))
+
+    def exportmarkdown(self):
+        filename = QtGui.QFileDialog.getSaveFileName(self, u"另存为html文件", u'preview', "file(*.md)")
+        import sys
+        reload(sys)
+        sys.setdefaultencoding('utf-8')
+        if filename:
+            markdownpageinstance = getattr(self.parent, 'MarkdownPage')
+            frame = markdownpageinstance.view.page().mainFrame()
+            md = unicode(frame.evaluateJavaScript("editor.getSession().getValue()").toString())
+            with open(str(filename), 'wb') as f:
+                f.write(str(md))
 
     def exporthtml(self):
         filename = QtGui.QFileDialog.getSaveFileName(self, u"另存为html文件", u'preview', "file(*.html)")
