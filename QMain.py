@@ -351,13 +351,13 @@ class MainWindow(QtGui.QMainWindow):
                 self.statusbar.show()
 
     def mousePressEvent(self,event):
-       # 鼠标点击事件
-       if event.button() == QtCore.Qt.LeftButton:
+        # 鼠标点击事件
+        if event.button() == QtCore.Qt.LeftButton:
            self.dragPosition = event.globalPos() - self.frameGeometry().topLeft()
            event.accept()
 
     def mouseMoveEvent(self,event):
-       # 鼠标移动事件
+        # 鼠标移动事件
         if event.buttons() ==QtCore.Qt.LeftButton:
             self.move(event.globalPos() - self.dragPosition)
             event.accept() 
