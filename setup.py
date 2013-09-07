@@ -313,7 +313,13 @@ if __name__ == '__main__':
     sw_logoico = config.__logoico__
 
     #生成软件版本号
-    svn_version = '360'
+    p = subprocess.Popen(
+    ['git','log'], 
+    stdin=subprocess.PIPE,
+    stdout=subprocess.PIPE,
+    shell = True,
+    )
+    svn_version = str(360 + len(p.stdout.readlines())/ 6)
     t = time.gmtime()
     if t.tm_mon < 10 or t.tm_mday < 10:
         mon = '0%d' % t.tm_mon
