@@ -163,7 +163,7 @@ class MainWindow(QtGui.QMainWindow):
         self.setWindowTitle(title)
         self.setWindowIcon(QtGui.QIcon(windowicon))  # 设置程序图标
         self.setMinimumSize(minsize[0], minsize[1])
-        width = QtGui.QDesktopWidget().availableGeometry().width() * 4 / 5
+        width = QtGui.QDesktopWidget().availableGeometry().width() * 5 / 6
         height = QtGui.QDesktopWidget().availableGeometry().height() * 7 / 8
         self.setGeometry(postion[0], postion[1], width, height)  # 初始化窗口位置和大小
         self.center()  # 将窗口固定在屏幕中间

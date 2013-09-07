@@ -30,7 +30,7 @@ class QChromePage(WebkitBasePage):
 
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
         htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
-        self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themegithub'], htmlfile)
+        self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themeevernote'], htmlfile, 'templateDef_evernote')
         url = QtCore.QUrl('file:///' + htmlfile)
         self.view.load(url)
 
@@ -91,7 +91,10 @@ class QChromePage(WebkitBasePage):
         markdownpageinstance = getattr(self.parent, 'MarkdownPage')
         frame = markdownpageinstance.view.page().mainFrame()
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
-        self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['theme%s'%theme])
+        if theme == "evernote":
+            self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themeevernote'], template='templateDef_evernote')
+        else:
+            self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['theme%s'%theme])
         self.view.setHtml(self.html, QtCore.QUrl(os.getcwd()))
 
     def exportmarkdown(self):
