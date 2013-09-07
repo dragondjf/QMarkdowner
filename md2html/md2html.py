@@ -100,7 +100,7 @@ def md2html(mdfile, theme, htmlfile=None, template="templateDef_default"):
         themecss += theme_file.read()
     content = markdown.markdown(text)
     nameSpace = {
-        'title': mdhtml.split("\n")[0][5:-5],
+        'title': mdhtml.split("\n")[0][4:-5],
         'content': content,
         'themecss': themecss,
     }
@@ -126,7 +126,7 @@ def mdhtmlcomplete(mdhtml, theme, htmlfile=None, template="templateDef_default")
         theme_file = codecs.open(css, mode="r", encoding="utf8")
         themecss += theme_file.read()
     nameSpace = {
-        'title': mdhtml.split("\n")[0][5:-5],
+        'title': mdhtml.split("\n")[0][4:-5],
         'content': mdhtml,
         'themecss': themecss,
     }
