@@ -19,6 +19,8 @@ templateDef_default = '''
         <style>
             $themecss
         </style>
+        <script src="file:///$highlight_js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </head>
         <body style="background: transparent;">
             <div id="main_content_wrap" class="outer" style="margin:0px auto">

@@ -22,15 +22,15 @@ body {
     width: 92%;
     background-color: gray;
     background-image: none;
-    /*border-radius: 50px;*/
+    /*border-radius: 5px;*/
     /*border-color: gray;*/
     margin: 0 auto;
     border-top: 10px solid #fc0;
     border-right: 10px solid #cf0;
     border-bottom: 10px solid #0cf;
     border-left: 10px solid #0fc;
-    padding: 10px;
-    font-size: 14px
+    /*padding: 10px;*/
+    font-size: 13px
 }
 .header{
     width: 80%;
