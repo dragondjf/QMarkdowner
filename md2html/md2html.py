@@ -19,7 +19,9 @@ templateDef_default = '''
         <style>
             $themecss
         </style>
-        <script src="file:///$highlight_js"></script>
+        <script>
+            $highlightjs
+        </script>
         <script>hljs.initHighlightingOnLoad();</script>
     </head>
         <body style="background: transparent;">
@@ -50,7 +52,9 @@ templateDef_evernote = '''
         <style>
             $themecss
         </style>
-        <script src="file:///$highlight_js"></script>
+        <script>
+            $highlightjs
+        </script>
         <script>hljs.initHighlightingOnLoad();</script>
     </head>
     <body class="wrapper" style="background: rgb(222,222,222)">
@@ -100,7 +104,9 @@ templateDef_jeklyy = '''
         <style>
             $themecss
         </style>
-        <script src="file:///$highlight_js"></script>
+        <script>
+            $highlightjs
+        </script>
         <script>hljs.initHighlightingOnLoad();</script>
     </head>
         <body>
@@ -124,6 +130,12 @@ templateDef_jeklyy = '''
 '''
 
 
+jsfile = os.sep.join([os.getcwd(), 'webjscss', 'highlight', 'highlight.pack.js'])
+js = codecs.open(jsfile, mode="r", encoding="utf8")
+highlightjs = js.read()
+js.close()
+
+
 def md2html(mdfile, theme, htmlfile=None, template="templateDef_default"):
     '''
         mdfile: 需要转换的markdown的完整路径
@@ -133,6 +145,7 @@ def md2html(mdfile, theme, htmlfile=None, template="templateDef_default"):
     # Open input file in read, utf-8 mode
     input_file = codecs.open(mdfile, mode="r", encoding="utf8")
     text = input_file.read()
+    input_file.close()
     themecss = ''
     for css in theme:
         if not os.path.exists(css):
@@ -140,11 +153,13 @@ def md2html(mdfile, theme, htmlfile=None, template="templateDef_default"):
         else:
             theme_file = codecs.open(css, mode="r", encoding="utf8")
             themecss += theme_file.read()
+            theme_file.close()
     content = markdown.markdown(text)
     nameSpace = {
         'title': mdhtml.split("\n")[0][4:-5],
         'content': content,
         'themecss': themecss,
+        'highlightjs': highlightjs
     }
     currentmodule = __import__('md2html')
     template = getattr(currentmodule, template)
@@ -167,10 +182,12 @@ def mdhtmlcomplete(mdhtml, theme, htmlfile=None, template="templateDef_default")
     for css in theme:
         theme_file = codecs.open(css, mode="r", encoding="utf8")
         themecss += theme_file.read()
+        theme_file.close()
     nameSpace = {
         'title': mdhtml.split("\n")[0][4:-5],
         'content': mdhtml,
         'themecss': themecss,
+        'highlightjs': highlightjs
     }
     currentmodule = __import__('md2html')
     template = getattr(currentmodule, template)
