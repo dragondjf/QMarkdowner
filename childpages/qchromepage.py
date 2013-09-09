@@ -21,7 +21,7 @@ class QChromePage(WebkitBasePage):
 
         self.createcontrolbar()
         self.layout().insertWidget(0, self.controlbar)
-
+        self.view.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Horizontal,QtCore.Qt.ScrollBarAlwaysOff)
         self.view.loadFinished.connect(self.finishLoading)
 
     def refreshcontent(self):
