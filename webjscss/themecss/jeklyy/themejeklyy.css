@@ -86,6 +86,14 @@ body {
 /*
 Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
 */
+blockquote {
+  border-left: 4px solid #dddddd;
+  margin: 6px;
+  padding: 0 15px;}
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
 
 pre code {
   display: block;

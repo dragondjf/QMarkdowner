@@ -135,8 +135,11 @@ def md2html(mdfile, theme, htmlfile=None, template="templateDef_default"):
     text = input_file.read()
     themecss = ''
     for css in theme:
-        theme_file = codecs.open(css, mode="r", encoding="utf8")
-        themecss += theme_file.read()
+        if not os.path.exists(css):
+            themecss = ""
+        else:
+            theme_file = codecs.open(css, mode="r", encoding="utf8")
+            themecss += theme_file.read()
     content = markdown.markdown(text)
     nameSpace = {
         'title': mdhtml.split("\n")[0][4:-5],
