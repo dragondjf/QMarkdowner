@@ -29,6 +29,8 @@ class QChromePage(WebkitBasePage):
         frame = markdownpageinstance.view.page().mainFrame()
 
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
+        if not os.path.exists(os.sep.join([os.getcwd(), 'doc'])):
+            os.mkdir(os.sep.join([os.getcwd(), 'doc']))
         htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
         self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themeevernote'], htmlfile, 'templateDef_evernote')
         url = QtCore.QUrl('file:///' + htmlfile)
