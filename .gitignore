@@ -2,7 +2,7 @@
 *.log
 *.iss
 *.json
-doc\preview.html
+doc
 # C extensions
 *.so
 
