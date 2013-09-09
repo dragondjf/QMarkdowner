@@ -95,6 +95,8 @@ class QChromePage(WebkitBasePage):
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
         if theme == "evernote":
             self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themeevernote'], template='templateDef_evernote')
+        elif theme == "jeklyy":
+            self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themejeklyy'], template='templateDef_jeklyy')
         else:
             self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['theme%s'%theme])
         self.view.setHtml(self.html, QtCore.QUrl(os.getcwd()))

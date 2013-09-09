@@ -10,6 +10,7 @@ import time
 
 templateDef_default = '''
 #encoding utf-8
+#set $highlight_js = $os.sep.join([$os.getcwd(), 'webjscss', 'highlight', 'highlight.pack.js'])
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
     <head>
@@ -36,7 +37,7 @@ templateDef_evernote = '''
 #set $csspath = $os.sep.join([$os.getcwd(), 'webjscss', 'themecss', 'evernote'])
 #set $themeevernote_css=$os.sep.join([$csspath, 'themeevernote.css'])
 #set $createtime = $time.ctime()
-
+#set $highlight_js = $os.sep.join([$os.getcwd(), 'webjscss', 'highlight', 'highlight.pack.js'])
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,6 +48,8 @@ templateDef_evernote = '''
         <style>
             $themecss
         </style>
+        <script src="file:///$highlight_js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </head>
     <body class="wrapper" style="background: rgb(222,222,222)">
         <div id="message-container">
@@ -79,6 +82,40 @@ templateDef_evernote = '''
                     </div>
                 </div>
             </div>
+        </div>
+    </body>
+</html>
+'''
+
+templateDef_jeklyy = '''
+#encoding utf-8
+#set $highlight_js = $os.sep.join([$os.getcwd(), 'webjscss', 'highlight', 'highlight.pack.js'])
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>$title</title>
+        <style>
+            $themecss
+        </style>
+        <script src="file:///$highlight_js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+        <body>
+        <div>
+            </div>
+            <div class="mainwindow">
+                <div class="note">
+                    <h5>$title</h5>
+                </div>
+                <div class="centerwindow">
+                    $content
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <h5>Designed by dragondjf 20130908</h5>
+            <h5>Inspired by jekyll</h5>
         </div>
     </body>
 </html>
