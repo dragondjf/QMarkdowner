@@ -307,7 +307,7 @@ class MainWindow(QtGui.QMainWindow):
                     evt.accept()
                     self.saveoptions()
                     with open(os.sep.join([os.getcwd(), 'options', 'windowsoptions.json']), 'wb') as f:
-                        json.dump(windowsoptions, f, indent=1)
+                        json.dump(windowsoptions, f, indent=4)
         else:
             evt.ignore()
 
