@@ -11,6 +11,9 @@ class WebkitBasePage(QtGui.QWidget):
         super(WebkitBasePage, self).__init__(parent)
         self.parent = parent
         QtNetwork.QNetworkProxyFactory.setUseSystemConfiguration(True)
+        QtWebKit.QWebSettings.globalSettings().setAttribute(\
+            QtWebKit.QWebSettings.PluginsEnabled, True)
+
         self.view = QtWebKit.QWebView(self)
         self.view.setFocus()
 

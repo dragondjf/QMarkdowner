@@ -27,12 +27,12 @@ class QChromePage(WebkitBasePage):
     def refreshcontent(self):
         markdownpageinstance = getattr(self.parent, 'MarkdownPage')
         frame = markdownpageinstance.view.page().mainFrame()
-
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
         if not os.path.exists(os.sep.join([os.getcwd(), 'doc'])):
             os.mkdir(os.sep.join([os.getcwd(), 'doc']))
         htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
-        self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themeevernote'], htmlfile, 'templateDef_evernote')
+        self.theme = "evernote"
+        self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['theme%s' % self.theme], htmlfile, 'templateDef_evernote')
         url = QtCore.QUrl('file:///' + htmlfile)
         self.view.load(url)
 
@@ -77,7 +77,7 @@ class QChromePage(WebkitBasePage):
             controlbar_layout.addWidget(QtGui.QLabel(), 0, i)
         controlbar_layout.addWidget(exportmarkdownButton, 0, n-4)
         controlbar_layout.addWidget(exporthtmlButton, 0, n-3)
-        # controlbar_layout.addWidget(exportpdfButton, 0, n-2)
+        controlbar_layout.addWidget(exportpdfButton, 0, n-2)
         controlbar_layout.addWidget(QtGui.QLabel(), 0, n)
         self.controlbar.setLayout(controlbar_layout)
         controlbar_layout.setContentsMargins(0, 0, 0, 0)
@@ -86,10 +86,11 @@ class QChromePage(WebkitBasePage):
         exportmarkdownButton.clicked.connect(self.exportmarkdown)
         exporthtmlButton.clicked.connect(self.exporthtml)
         exportpdfButton.clicked.connect(self.exportpdf)
-        exportpdfButton.setDisabled(True)
+
 
     def settheme(self):
         theme = self.sender().objectName()[5:-6]
+        self.theme = theme 
         markdownpageinstance = getattr(self.parent, 'MarkdownPage')
         frame = markdownpageinstance.view.page().mainFrame()
         mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
@@ -123,16 +124,34 @@ class QChromePage(WebkitBasePage):
                 f.write(str(self.html))
 
     def exportpdf(self):
-        filename = QtGui.QFileDialog.getSaveFileName(self, u"另存为html文件", u'preview', "file(*.pdf)")
+        filename = QtGui.QFileDialog.getSaveFileName(self, u"另存为PDF文件", u'preview', "file(*.pdf)")
         import sys
         reload(sys)
         sys.setdefaultencoding('utf-8')
+        pdfengine = os.sep.join([os.getcwd(), "dependtool", "wkhtmltopdf", "wkhtmltopdf.exe"])
+        htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
         if filename:
-            import xhtml2pdf.pisa as pisa
-            fpdf = open(filename,'wb')
-            pdf = pisa.CreatePDF(unicode(self.html), fpdf)
-            fpdf.close()
-
+            if self.theme == "evernote":
+                pdfhtml = self.html
+                pdfhtml = pdfhtml.replace('''<body class="wrapper" style="background: rgb(222,222,222)">
+        <br>''','''<body class="wrapper" style="background: rgb(222,222,222)">''')
+                pdfhtml = pdfhtml.replace('''<div id="container" class="wrapper">''',
+                    '''<div id="container" class="wrapper" style="width: 100%;margin-left:0px">''')
+                with open(str(htmlfile), 'wb') as f:
+                    f.write(str(pdfhtml))
+            elif self.theme == "jeklyy":
+                markdownpageinstance = getattr(self.parent, 'MarkdownPage')
+                frame = markdownpageinstance.view.page().mainFrame()
+                mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
+                pdfcss = os.sep.join([os.getcwd(), 'webjscss', 'themecss', 'jeklyy', 'themejeklyypdf.css'])
+                pdfhtml = mdhtmlcomplete(mdhtml, [pdfcss], template='templateDef_jeklyy')
+                with open(str(htmlfile), 'wb') as f:
+                    f.write(str(pdfhtml))
+            else:
+                pdfhtml = self.html
+                with open(str(htmlfile), 'wb') as f:
+                    f.write(str(pdfhtml))
+            os.system("%s %s %s" %(pdfengine, htmlfile, filename))
 
 if __name__ == '__main__':
     import sys

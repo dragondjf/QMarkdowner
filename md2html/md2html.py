@@ -58,12 +58,7 @@ templateDef_evernote = '''
         <script>hljs.initHighlightingOnLoad();</script>
     </head>
     <body class="wrapper" style="background: rgb(222,222,222)">
-        <div id="message-container">
-          <div id="message">
-            <div id="message-checkmark"></div>
-            <span></span>
-          </div>
-        </div>
+        <br>
         <div class="SharedNoteView"><div id="container-boundingbox" class="wrapper">
             <div id="container" class="wrapper">
                 <div class="shared-by shared-by-desktop">

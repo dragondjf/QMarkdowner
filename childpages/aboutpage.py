@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 templateDef_absolute = '''
 #encoding utf-8
+#set baseweb = $os.sep.join([$os.getcwd(), 'webjscss'])
 #set $csspath = $os.sep.join([$os.getcwd(), 'webjscss', 'Bootstrap Metro UI CSS'])
 #set $jspath = $os.sep.join([$os.getcwd(), 'webjscss', 'Bootstrap Metro UI CSS', 'js'])
 #set $imagepath = $os.sep.join([$os.getcwd(), 'skin', 'images'])
@@ -42,13 +43,13 @@ templateDef_absolute = '''
 #set $tile_drag_js=$os.sep.join([$jspath, 'tile-drag.js'])
 #set $tile_slider_js=$os.sep.join([$jspath, 'tile-slider.js'])
 
+#set $pdfobject_js=$os.sep.join([$baseweb, 'pdfobject','pdfobject.js'])
+
 #set $company_image = $os.sep.join([$imagepath, 'compayimage.jpg'])
 #set $onevo_image = $os.sep.join([$imagepath, 'onevo.jpg'])
 #set $onevo1_image = $os.sep.join([$imagepath, 'onevo1.jpg'])
 #set $onevo2_image = $os.sep.join([$imagepath, 'onevo2.jpg'])
 #set $onevo3_image = $os.sep.join([$imagepath, 'onevo3.jpg'])
-
-
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -78,6 +79,13 @@ templateDef_absolute = '''
     <script type="text/javascript" src="file:///$slider_js"></script>
     <script type="text/javascript" src="file:///$tile_drag_js"></script>
     <script type="text/javascript" src="file:///$tile_slider_js"></script>
+    <script type="text/javascript" src="file:///$pdfobject_js"></script>
+
+    <script type="text/javascript">
+        window.onload = function (){
+            var success = new PDFObject({ url: "MarkDown.pdf" }).embed("pdf");
+        };
+    </script>
     <title>$title</title>
     <body class="modern-ui" onload="prettyPrint()">
         <div class="page secondary" style="width: 100%">
@@ -85,16 +93,23 @@ templateDef_absolute = '''
                     <div class="page-region-content">
                         <div class="page-control span10" data-role="page-control" style="width: 92%">
                             <ul style="display: block; overflow: visible;">
-                                <li class="active"><a href="#page1">$soft_info</a></li>
-                                <li class=""><a href="#page2">$company_info</a></li>
+                                <li class="active"><a href="#page1">$help_info</a></li>
+                                <li class=><a href="#page2">$soft_info</a></li>
+                                <li class=""><a href="#page3">$company_info</a></li>
                             </ul>
                             <div class="frames">
                                 <div class="frame" id="page1" style="display: none;">
+                                    <object data="file:///MarkDown.pdf" type="application/x-pdf" width="100%" height="100%">
+                                        <param name="showTableOfContents" value="true" />
+                                        <param name="hideThumbnails" value="false" />
+                                    </object>
+                                </div>
+                                <div class="frame" id="page2" style="display: none;">
                                     <h2>$soft_info</h2>
                                     <p>软件版本号：$sw_info</p>
                                     <p>版权所有：dragondjf</p>
                                 </div>
-                                <div class="frame" id="page2" style="display: none;">
+                                <div class="frame" id="page3" style="display: none;">
                                     <h2>$company_info</h2>
                                     <p>联系邮箱：dragondjf@gmail.com, ding465398889@163.com</p>
                                     <p>联系QQ：465398889</p>
@@ -116,7 +131,7 @@ class AboutPage(WebkitBasePage):
     def __init__(self, parent=None):
         super(AboutPage, self).__init__(parent)
         self.parent = parent
-
+        self.view.page().settings().setAttribute(QtWebKit.QWebSettings.PluginsEnabled, True)
         self.loadfromlocal()
 
     def auto_html(self, template):
@@ -139,6 +154,7 @@ class AboutPage(WebkitBasePage):
             'funtion_info': "软件基本功能",
             'soft_info': '软件版本说明',
             'company_info': '关于我们',
+            'help_info': 'MarkDown语法简介',
             'sw_info': sw_info,
             'imagewidth': QtGui.QDesktopWidget().availableGeometry().width()* 3 / 5,
             'imageheight': QtGui.QDesktopWidget().availableGeometry().width() * 27 / 80,
