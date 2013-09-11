@@ -324,6 +324,10 @@ if __name__ == '__main__':
     if t.tm_mon < 10 or t.tm_mday < 10:
         mon = '0%d' % t.tm_mon
         day = '0%d' % t.tm_mday
+        if t.tm_mon >= 10:
+            mon = t.tm_mon
+        if t.tm_mday >= 10:
+            day = t.tm_mday
         buildtime = ''.join([str(i) for i in [t.tm_year, mon, day]])
     else:   
         buildtime = ''.join([str(i) for i in [t.tm_year, t.tm_mon, t.tm_mday]])
@@ -391,10 +395,10 @@ if __name__ == '__main__':
         拷贝响应的图片皮肤和与项目有关的资源文件到打包目录
     '''
 
-    for item in ['skin', 'webjscss', 'dependtool', 'doc', 'options']:
+    for item in ['skin', 'webjscss', 'dependtool', 'doc']:
         shutil.copytree(os.getcwd() + os.sep + item, os.getcwd() + os.sep + os.sep.join(['dist', item]))
 
-    for item in ['log']:
+    for item in ['log', 'options']:
         os.mkdir(os.getcwd() + os.sep + os.sep.join(['dist', item]))
 
     change_package_fromLocal('Cheetah')
@@ -406,7 +410,7 @@ if __name__ == '__main__':
         "svn_version": 'r%s' % info[0], 
         "buildtime": 'b%s' % info[1]},
         indent=3)
-    write_file(os.sep.join([os.getcwd(), 'options', 'ver.json']), sw_info)
+    write_file(os.sep.join([os.getcwd(), 'dist', 'options', 'ver.json']), sw_info)
 
     # 调用外面iscc 运行setup.iss, 生成安装版本exe
     os.system("iscc %s" % setup_iss_file)
