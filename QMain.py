@@ -359,9 +359,10 @@ class MainWindow(QtGui.QMainWindow):
 
     def mouseMoveEvent(self,event):
         # 鼠标移动事件
-        if event.buttons() ==QtCore.Qt.LeftButton:
-            self.move(event.globalPos() - self.dragPosition)
-            event.accept() 
+        if hasattr(self, "dragPosition"):
+            if event.buttons() == QtCore.Qt.LeftButton:
+                self.move(event.globalPos() - self.dragPosition)
+                event.accept()
 
 
 class SplashScreen(QtGui.QSplashScreen):
