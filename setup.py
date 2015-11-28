@@ -15,7 +15,7 @@ import zipfile
 import json
 from distribution import Distribution
 from Cheetah.Template import Template
-
+import PyQt4
 
 def change_package_fromLib(package_name):
     '''
@@ -369,14 +369,15 @@ if __name__ == '__main__':
         dist.includes += []
         # dist.data_files += matplotlibdata_files
         dist.data_files += get_py2exe_datafiles(os.sep.join([os.getcwd(), 'utildialog', 'utildialogskin']), 'utildialogskin')
+        python_lib_path = os.path.dirname(PyQt4.__file__)
         dist.data_files += [('phonon_backend', [
-                'C:\Python27\Lib\site-packages\PyQt4\plugins\phonon_backend\phonon_ds94.dll'
+                os.path.join(python_lib_path, 'plugins\phonon_backend\phonon_ds94.dll')
                 ]),
             ('imageplugins', [
-            'c:\Python27\lib\site-packages\PyQt4\plugins\imageformats\qgif4.dll',
-            'c:\Python27\lib\site-packages\PyQt4\plugins\imageformats\qjpeg4.dll',
-            'c:\Python27\lib\site-packages\PyQt4\plugins\imageformats\qsvg4.dll',
-            'c:\Python27\lib\site-packages\PyQt4\plugins\imageformats\qico4.dll',
+            os.path.join(python_lib_path, 'plugins\imageformats\qgif4.dll'),
+            os.path.join(python_lib_path, 'plugins\imageformats\qjpeg4.dll'),
+            os.path.join(python_lib_path, 'plugins\imageformats\qsvg4.dll'),
+            os.path.join(python_lib_path, 'plugins\imageformats\qico4.dll'),
             ])]
 
         dist.excludes += [
@@ -395,8 +396,10 @@ if __name__ == '__main__':
         拷贝响应的图片皮肤和与项目有关的资源文件到打包目录
     '''
 
+    rootPath = os.getcwd()
     for item in ['skin', 'webjscss', 'dependtool', 'doc']:
-        shutil.copytree(os.getcwd() + os.sep + item, os.getcwd() + os.sep + os.sep.join(['dist', item]))
+        if os.path.exists(os.path.join(rootPath, item)):
+            shutil.copytree(os.path.join(rootPath, item), os.path.join(rootPath, 'dist', item))
 
     for item in ['log', 'options']:
         os.mkdir(os.getcwd() + os.sep + os.sep.join(['dist', item]))
