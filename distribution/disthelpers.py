@@ -234,7 +234,7 @@ class Distribution(object):
         self.bin_path_excludes = self.DEFAULT_BIN_PATH_EXCLUDES
         self.vs2008 = os.name == 'nt'
         self._py2exe_is_loaded = False
-        self._pyqt4_added = False
+        self._qframer.qt_added = False
         self._pyside_added = False
         # Attributes relative to cx_Freeze:
         self.executables = []
@@ -308,18 +308,18 @@ class Distribution(object):
         self.data_files += [(destdir, (filename, ))]
 
     #------ Adding packages
-    def add_pyqt4(self):
-        """Include module PyQt4 to the distribution"""
-        if self._pyqt4_added:
+    def add_qframer.qt(self):
+        """Include module qframer.qt to the distribution"""
+        if self._qframer.qt_added:
             return
-        self._pyqt4_added = True
+        self._qframer.qt_added = True
         
-        self.includes += ['sip', 'PyQt4.Qt', 'PyQt4.QtSvg', 'PyQt4.QtNetwork']
+        self.includes += ['sip', 'qframer.qt.Qt', 'qframer.qt.QtSvg', 'qframer.qt.QtNetwork']
         
-        import PyQt4
-        pyqt_path = osp.dirname(PyQt4.__file__)
+        import qframer.qt
+        pyqt_path = osp.dirname(qframer.qt.__file__)
         
-        # Configuring PyQt4
+        # Configuring qframer.qt
         conf = os.linesep.join(["[Paths]", "Prefix = .", "Binaries = ."])
         self.add_text_data_file('qt.conf', conf)
         
@@ -411,10 +411,10 @@ class Distribution(object):
             self.data_files.append(('translations', (fr_trans, )))
     
     def add_qt_bindings(self):
-        """Include Qt bindings, i.e. PyQt4 or PySide"""
+        """Include Qt bindings, i.e. qframer.qt or PySide"""
         try:
-            imp.find_module('PyQt4')
-            self.add_modules('PyQt4')
+            imp.find_module('qframer.qt')
+            self.add_modules('qframer.qt')
         except ImportError:
             self.add_modules('PySide')
 
@@ -439,8 +439,8 @@ class Distribution(object):
         """Include module *module_name*"""
         for module_name in module_names:
             print "Configuring module '%s'" % module_name
-            if module_name == 'PyQt4':
-                self.add_pyqt4()
+            if module_name == 'qframer.qt':
+                self.add_qframer.qt()
             elif module_name == 'PySide':
                 self.add_pyside()
             elif module_name == 'scipy.io':
@@ -479,8 +479,8 @@ class Distribution(object):
                 self.add_module_data_files('guidata', ("images", ),
                                        ('.png', '.svg'), copy_to_root=False)
                 try:
-                    imp.find_module('PyQt4')
-                    self.add_pyqt4()
+                    imp.find_module('qframer.qt')
+                    self.add_qframer.qt()
                 except ImportError:
                     self.add_pyside()
             elif module_name == 'guiqwt':

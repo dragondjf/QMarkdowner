@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+from qframer.qt import QtGui
+from qframer.qt import QtCore
 from config import windowsoptions
 from qchromepage import QChromePage
 
@@ -47,15 +47,15 @@ class ChildPage(QtGui.QWidget):
         self.navigation.setMaximumHeight(60)
         self.navigation.setContentsMargins(0, 0, 0, 0)
 
-        QtCore.QObject.connect(getattr(self, 'Navigation' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent, QtCore.SLOT('backnavigationPage()'))
-        QtCore.QObject.connect(getattr(self, 'Back' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent, QtCore.SLOT('backPage()'))
-        QtCore.QObject.connect(getattr(self, 'Forward' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent, QtCore.SLOT('forwardnextPage()'))
+       
 
-        QtCore.QObject.connect(getattr(self, 'Min' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('showMinimized()'))
-        QtCore.QObject.connect(getattr(self, 'Max' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('windowMaxNormal()'))
-        QtCore.QObject.connect(getattr(self, 'Close' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('close()'))
+        getattr(self, 'Navigation' + 'Button').clicked.connect(self.parent.backnavigationPage)
+        getattr(self, 'Back' + 'Button').clicked.connect(self.parent.backPage)
+        getattr(self, 'Forward' + 'Button').clicked.connect(self.parent.forwardnextPage)
+        getattr(self, 'Min' + 'Button').clicked.connect(self.parent.parent().showMinimized)
+        getattr(self, 'Max' + 'Button').clicked.connect(self.parent.parent().windowMaxNormal)
+        getattr(self, 'Close' + 'Button').clicked.connect(self.parent.parent().close)
 
-        # getattr(self, 'MaxButton').setDisabled(True)
 
 
     def createNavigationByPage(self):
@@ -79,6 +79,6 @@ class ChildPage(QtGui.QWidget):
         self.navigation.setMaximumHeight(60)
         self.navigation.setContentsMargins(0, 0, 0, 0)
 
-        QtCore.QObject.connect(getattr(self, 'Min' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('showMinimized()'))
-        QtCore.QObject.connect(getattr(self, 'Max' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('windowMaxNormal()'))
-        QtCore.QObject.connect(getattr(self, 'Close' + 'Button'), QtCore.SIGNAL('clicked()'), self.parent.parent(), QtCore.SLOT('close()'))
+        getattr(self, 'Min' + 'Button').clicked.connect(self.parent.parent().showMinimized)
+        getattr(self, 'Max' + 'Button').clicked.connect(self.parent.parent().windowMaxNormal)
+        getattr(self, 'Close' + 'Button').clicked.connect(self.parent.parent().close)

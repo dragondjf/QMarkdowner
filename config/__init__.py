@@ -10,14 +10,14 @@ __softwarename__ = 'QMarkdowner'
 __author__ = "dragondjf"
 __url__ = "dragondjf.github.com"
 __description__ = '''
-    This is a SoftwareFrame based on PyQt4 with Metro Style.
+    This is a SoftwareFrame based on qframer.qt with Metro Style.
 '''
 __logoico__ = os.sep.join([os.getcwd(), 'skin', 'images', 'MarkdownLife.ico'])
 __version__ = '1.0.0'
 
 
 logo_ico = __logoico__
-logo_img_url = os.sep.join([os.getcwd(), 'skin', 'images', 'ov-orange-green.png'])
+logo_img_url = os.sep.join([os.getcwd(), 'skin', 'images', 'qmarkdowner.png'])
 logo_title = u''
 
 from mainwindowcfg import mainwindowsettings

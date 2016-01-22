@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+from qframer.qt import QtGui
+from qframer.qt import QtCore
 import logging
 
 logger = logging.getLogger(__name__)
@@ -62,7 +62,7 @@ class BaseDialog(QtGui.QDialog):
         self.setWindowTitle(title)
         self.setWindowIcon(QtGui.QIcon(windowicon))  # 设置程序图标
         self.setMinimumSize(minsize[0], minsize[1])
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowMinimizeButtonHint)  # 无边框， 带系统菜单， 可以最小化
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 无边框， 带系统菜单， 可以最小化
 
         self.logowidget = DynamicTextWidget(logo_title, logo_img_url)
 
@@ -197,16 +197,9 @@ def setbg(widget, filename):
     widget.setPalette(palette)
 
 
-def setskin(QApplication, qssfile, style=''):
-    '''
-        设置控件的样式
-    '''
-    qss = QtCore.QFile(qssfile)
-    qss.open(QtCore.QIODevice.ReadOnly)
-    if qss.isOpen():
-        QApplication.setStyleSheet(QtCore.QVariant(qss.readAll()).toString() + style)
-    qss.close()
-
+def setskin(app, qssfile, style=''):
+    with open(qssfile, 'r') as f:
+        app.setStyleSheet(f.read() + style)
 
 if __name__ == '__main__':
     import sys

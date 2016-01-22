@@ -5,8 +5,9 @@ import sys
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+from qframer.qt import QtGui
+from qframer.qt import QtCore
+from qframer import FMainWindow
 import json
 import time
 
@@ -55,7 +56,7 @@ class MetroWindow(QtGui.QWidget):
         self.layout().setContentsMargins(0, 0, 0, 0)
 
         self.faderWidget = None
-        self.connect(self.pages, QtCore.SIGNAL("currentChanged(int)"), self.fadeInWidget)  # 页面切换时淡入淡出效果
+        self.pages.currentChanged.connect(self.fadeInWidget)  # 页面切换时淡入淡出效果
 
     def createNavigation(self):
         '''
@@ -180,8 +181,7 @@ class MainWindow(QtGui.QMainWindow):
 
         # self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)  # 隐藏标题栏， 可以拖动边框改变大小
         # self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 隐藏标题栏， 无法改变大小
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint | \
-        QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowMinimizeButtonHint)  # 无边框， 带系统菜单， 可以最小化
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 无边框， 带系统菜单， 可以最小化
 
     def setskin(self):
         for buttons in windowsoptions['mainwindow']['centralwindow']['pagetags']:
@@ -398,6 +398,14 @@ class SplashScreen(QtGui.QSplashScreen):
 
 if __name__ == '__main__':
     import sys
+    if sys.platform == "linux2":
+        import platform
+        if platform.architecture()[0] == "32bit":
+            QtGui.QApplication.addLibraryPath(
+                '/usr/lib/%s-linux-gnu/qt5/plugins/' % 'i386')
+        else:
+            QtGui.QApplication.addLibraryPath(
+                '/usr/lib/%s-linux-gnu/qt5/plugins/' % platform.machine())
     app = QtGui.QApplication(sys.argv)
     splash = SplashScreen(QtGui.QPixmap(windowsoptions['splashimg']))
     splash.fadeTicker(0)

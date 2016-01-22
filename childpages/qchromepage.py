@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
-from PyQt4 import QtGui
-from PyQt4 import QtCore
-from PyQt4 import QtWebKit
+from qframer.qt import QtGui
+from qframer.qt import QtCore
+from qframer.qt import QtWebKit
 from Cheetah.Template import Template
 import json
 import logging
@@ -27,7 +27,7 @@ class QChromePage(WebkitBasePage):
     def refreshcontent(self):
         markdownpageinstance = getattr(self.parent, 'MarkdownPage')
         frame = markdownpageinstance.view.page().mainFrame()
-        mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
+        mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()"))
         if not os.path.exists(os.sep.join([os.getcwd(), 'doc'])):
             os.mkdir(os.sep.join([os.getcwd(), 'doc']))
         htmlfile = os.sep.join([os.getcwd(), 'doc', 'preview.html'])
@@ -93,7 +93,7 @@ class QChromePage(WebkitBasePage):
         self.theme = theme 
         markdownpageinstance = getattr(self.parent, 'MarkdownPage')
         frame = markdownpageinstance.view.page().mainFrame()
-        mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
+        mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()"))
         if theme == "evernote":
             self.html = mdhtmlcomplete(mdhtml, windowsoptions['markdownthemes']['themeevernote'], template='templateDef_evernote')
         elif theme == "jeklyy":
@@ -142,7 +142,7 @@ class QChromePage(WebkitBasePage):
             elif self.theme == "jeklyy":
                 markdownpageinstance = getattr(self.parent, 'MarkdownPage')
                 frame = markdownpageinstance.view.page().mainFrame()
-                mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()").toString())
+                mdhtml = unicode(frame.evaluateJavaScript("$('#preview').html()"))
                 pdfcss = os.sep.join([os.getcwd(), 'webjscss', 'themecss', 'jeklyy', 'themejeklyypdf.css'])
                 pdfhtml = mdhtmlcomplete(mdhtml, [pdfcss], template='templateDef_jeklyy')
                 with open(str(htmlfile), 'wb') as f:

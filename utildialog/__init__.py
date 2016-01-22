@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+from qframer.qt import QtGui
+from qframer.qt import QtCore
 from logindialog import login
 from exitdialog import exit
 from msgdialog import MessageDialog

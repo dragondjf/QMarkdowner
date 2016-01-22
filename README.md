@@ -47,7 +47,7 @@ jeklly主题预览
 
 ###4. QMarkdowner涉猎的技术   
 + Python2.7    
-+ PyQt4    
++ qframer.qt    
     + QMainwidow  ----  **核心窗口部件**
     + QStackWidget  ---- **堆控件**
     + QtWebkit  ----  **嵌入浏览器控件**

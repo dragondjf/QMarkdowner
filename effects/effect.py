@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+from qframer.qt import QtGui
+from qframer.qt import QtCore
 
 
 class FaderWidget(QtGui.QWidget):
@@ -21,7 +21,7 @@ class FaderWidget(QtGui.QWidget):
         self.duration = 1000
 
         self.timer = QtCore.QTimer(self)
-        self.connect(self.timer, QtCore.SIGNAL("timeout()"), self.update)
+        self.timer.timeout.connect(self.update)
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.resize(parent.size())
 

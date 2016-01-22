@@ -359,24 +359,24 @@ if __name__ == '__main__':
         dist.setup(
                 name=sw_name,
                 version=sw_version,
-                description=u"Application based on PyQt4",
+                description=u"Application based on qframer.qt",
                 script=os.sep.join([os.getcwd(), 'QMain.py']),
                 target_name='QMarkdowner',
                 icon=sw_logoico)
 
-        dist.add_modules('PyQt4')
+        dist.add_modules('qframer.qt')
         dist.bin_excludes += ["libzmq.dll"]
         dist.includes += []
         # dist.data_files += matplotlibdata_files
         dist.data_files += get_py2exe_datafiles(os.sep.join([os.getcwd(), 'utildialog', 'utildialogskin']), 'utildialogskin')
         dist.data_files += [('phonon_backend', [
-                'C:\Python27\Lib\site-packages\PyQt4\plugins\phonon_backend\phonon_ds94.dll'
+                'C:\Python27\Lib\site-packages\qframer.qt\plugins\phonon_backend\phonon_ds94.dll'
                 ]),
             ('imageplugins', [
-            'c:\Python27\lib\site-packages\PyQt4\plugins\imageformats\qgif4.dll',
-            'c:\Python27\lib\site-packages\PyQt4\plugins\imageformats\qjpeg4.dll',
-            'c:\Python27\lib\site-packages\PyQt4\plugins\imageformats\qsvg4.dll',
-            'c:\Python27\lib\site-packages\PyQt4\plugins\imageformats\qico4.dll',
+            'c:\Python27\lib\site-packages\qframer.qt\plugins\imageformats\qgif4.dll',
+            'c:\Python27\lib\site-packages\qframer.qt\plugins\imageformats\qjpeg4.dll',
+            'c:\Python27\lib\site-packages\qframer.qt\plugins\imageformats\qsvg4.dll',
+            'c:\Python27\lib\site-packages\qframer.qt\plugins\imageformats\qico4.dll',
             ])]
 
         dist.excludes += [

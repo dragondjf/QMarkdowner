@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from PyQt4 import QtGui
-from PyQt4 import QtCore
-from PyQt4 import QtWebKit
-from PyQt4 import QtNetwork
+from qframer.qt import QtGui
+from qframer.qt import QtCore
+from qframer.qt import QtWebKit
+from qframer.qt import QtNetwork
 
 
 class WebkitBasePage(QtGui.QWidget):

@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
-from PyQt4 import QtGui
-from PyQt4 import QtCore
-from PyQt4 import QtNetwork
-from PyQt4 import QtWebKit
+from qframer.qt import QtGui
+from qframer.qt import QtCore
+from qframer.qt import QtNetwork
+from qframer.qt import QtWebKit
 from Cheetah.Template import Template
 import json
 import logging

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+from qframer.qt import QtGui
+from qframer.qt import QtCore
 
 
 '''
@@ -37,12 +37,9 @@ def set_bg(widget, bg=None):
     setattr(widget, 'bg', bg)
 
 
-def set_skin(QApplication, qssfile, style=''):
-    qss = QtCore.QFile(qssfile)
-    qss.open(QtCore.QIODevice.ReadOnly)
-    if qss.isOpen():
-        QApplication.setStyleSheet(QtCore.QVariant(qss.readAll()).toString() + style)
-    qss.close()
+def set_skin(app, qssfile, style=''):
+    with open(qssfile, 'r') as f:
+        app.setStyleSheet(f.read() + style)
 
 
 def movecenter(w):
