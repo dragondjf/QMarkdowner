@@ -1,6 +1,6 @@
 关于QMarkdowner的那些事
 ===================================================
-###1. markdown 是什么？
+### 1. markdown 是什么？
  
 +   大家都知道，markdown是一种适于网络编写的纯文本格式的标记语言，由一系列的符号标记和文本组成，在很多软件项目中常常采用markdown去撰写说明文档readme.md，传递项目的更新或特性，例如GitHub中每个开源项目都有一个readme.md。    
 +   markdown的优势：
@@ -9,7 +9,7 @@
 +   在计算机的世界很多人用他去编写Blog,读写发布快速方便，简单易用，如果你想快速记录你所想，如果你想在blog中快速发布你所想，markdown是值得学习使用的一个工具。
 +  详情参见[markdown中文语法说明](http://wowubuntu.com/markdown/#philosophy)。
 
-###2.QMarkdowner是什么？
+### 2.QMarkdowner是什么？
  
 +   既然markdown文档具备这些优势，在什么编辑器上撰写markdown格式文档？
 +   开源中国[markdown编辑器](http://www.oschina.net/search?scope=project&q=markdown)集锦；
@@ -20,7 +20,7 @@
     +   全屏预览，五种主题切换，简洁美观；
     +   支持markdwon、html、pdf格式导出；
 
-###3. QMarkdowner风格预览
+### 3. QMarkdowner风格预览
 所见所得，书写与预览同步
 
 ![编辑窗口][edit]
@@ -45,7 +45,7 @@ jeklly主题预览
 
 ![jeklly][jeklyy]
 
-###4. QMarkdowner涉猎的技术   
+### 4. QMarkdowner涉猎的技术   
 + Python2.7    
 + qframer.qt    
     + QMainwidow  ----  **核心窗口部件**
@@ -66,7 +66,7 @@ jeklly主题预览
 + 附上一张软件架构图
 ![QFramer][QFramer]
 
-###5. 致敬
+### 5. 致敬
 + 感谢：   
   + Chrome插件MaDe，highlight.js, wkhtmltopdf等开源项目；
   + Good朋友jack_zh；
@@ -78,7 +78,7 @@ jeklly主题预览
 +    软件发布地址：http://yunpan.cn/cHv5RfPyzEMdY （提取码：fef6）
 +    刻骨铭心：感谢开源精神，分享成就自我！
 
-###6.反馈改进     
+### 6.反馈改进     
 + 欢迎大家拍砖，一起营造markdown撰写**利刃QMarkdowner**
 + 下一步功能增强：
     + 加入**markdown文件管理功能**，打造成利用markdown写作的利器，帮助有志利用markdown写作的朋友快速撰写书稿；
